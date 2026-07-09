@@ -4,32 +4,42 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NTC Attendance System</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>NTC Live Attendance</title>
 
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+rel="stylesheet">
 
 
 <style>
 
-
 :root{
 
---primary:#0b1f3a;
+--dark:#07111f;
 
---secondary:#0066ff;
+--dark2:#0c192b;
 
---success:#16a34a;
+--card:#101f34;
 
---light:#f8fafc;
+--border:#22344d;
+
+--green:#20d6a2;
+
+--red:#ef5350;
+
+--blue:#3987ff;
 
 }
-
 
 
 *{
@@ -37,7 +47,6 @@
 box-sizing:border-box;
 
 }
-
 
 
 body{
@@ -50,357 +59,696 @@ overflow:hidden;
 
 font-family:"Segoe UI",Arial,sans-serif;
 
-background:#eef3f8;
+color:white;
+
+background:
+
+radial-gradient(
+circle at top left,
+rgba(32,214,162,.10),
+transparent 35%
+),
+
+#07111f;
 
 }
 
 
-
-/* HEADER */
+/* ================= HEADER ================= */
 
 
 .header{
 
+height:105px;
 
-height:120px;
+padding:18px 40px;
 
+background:rgba(7,17,31,.95);
 
-background:
-
-linear-gradient(90deg,#071426,#123d78);
-
-
-color:white;
-
-
-padding:25px 40px;
-
+border-bottom:1px solid var(--border);
 
 display:flex;
 
+align-items:center;
+
+}
+
+
+.logo-box{
+
+width:60px;
+
+height:60px;
+
+border-radius:15px;
+
+background:
+
+rgba(32,214,162,.12);
+
+border:
+
+1px solid rgba(32,214,162,.4);
+
+display:flex;
 
 align-items:center;
 
+justify-content:center;
 
-box-shadow:0 5px 20px rgba(0,0,0,.25);
+font-size:34px;
 
+color:var(--green);
 
 }
 
 
+.system-title{
 
-.logo-title{
-
-font-size:38px;
+font-size:31px;
 
 font-weight:800;
 
-}
-
-
-
-.sub-title{
-
-font-size:18px;
-
-opacity:.8;
+letter-spacing:.5px;
 
 }
 
 
+.system-title span{
+
+color:var(--green);
+
+}
+
+
+.subtitle{
+
+color:#8191a8;
+
+font-size:14px;
+
+letter-spacing:2px;
+
+}
 
 
 .clock{
 
-font-size:42px;
+font-size:35px;
+
+font-weight:700;
+
+font-family:monospace;
+
+}
+
+
+.date{
+
+color:#91a1b7;
+
+}
+
+
+.online{
+
+color:var(--green);
 
 font-weight:700;
 
 }
 
 
+.online-dot{
+
+width:10px;
+
+height:10px;
+
+display:inline-block;
+
+border-radius:50%;
+
+background:var(--green);
+
+box-shadow:
+
+0 0 15px var(--green);
+
+}
 
 
-
-/* MAIN */
+/* ================= MAIN ================= */
 
 
 .main{
 
-height:calc(100vh - 120px);
+height:
 
-padding:35px;
+calc(100vh - 105px);
 
+padding:25px 35px;
 
 }
 
 
-
-
-
-.card-box{
-
-
-background:white;
-
-
-border-radius:25px;
-
-
-box-shadow:
-
-0 10px 30px rgba(0,0,0,.12);
-
-
-padding:30px;
-
+.main-row{
 
 height:100%;
 
-
 }
 
 
+.panel{
 
+height:100%;
 
+background:
 
-/* EMPLOYEE */
+rgba(16,31,52,.94);
 
+border:
 
-.profile-area{
+1px solid var(--border);
 
-text-align:center;
-
-}
-
-
-
-.photo{
-
-
-width:320px;
-
-height:320px;
-
-
-border-radius:50%;
-
-
-object-fit:cover;
-
-
-border:8px solid white;
-
+border-radius:25px;
 
 box-shadow:
 
-0 0 0 8px #0d6efd;
+0 20px 60px
 
+rgba(0,0,0,.28);
 
 }
 
 
+/* ================= PROFILE ================= */
+
+
+.profile-panel{
+
+padding:25px;
+
+text-align:center;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+.live-label{
+
+position:absolute;
+
+top:20px;
+
+right:20px;
+
+padding:
+
+7px 15px;
+
+border-radius:30px;
+
+font-size:13px;
+
+font-weight:700;
+
+color:var(--green);
+
+background:
+
+rgba(32,214,162,.12);
+
+border:
+
+1px solid
+
+rgba(32,214,162,.4);
+
+}
+
+
+.photo-wrapper{
+
+width:280px;
+
+height:280px;
+
+margin:
+
+25px auto 18px;
+
+position:relative;
+
+}
+
+
+.employee-photo{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+border-radius:50%;
+
+border:8px solid var(--card);
+
+box-shadow:
+
+0 0 0 5px var(--green),
+
+0 0 50px
+
+rgba(32,214,162,.20);
+
+}
+
+
+.scan-line{
+
+position:absolute;
+
+left:10px;
+
+right:10px;
+
+height:4px;
+
+background:
+
+var(--green);
+
+box-shadow:
+
+0 0 20px
+
+var(--green);
+
+animation:
+
+scan 3s infinite;
+
+}
+
+
+@keyframes scan{
+
+0%{
+
+top:15%;
+
+opacity:0;
+
+}
+
+15%{
+
+opacity:1;
+
+}
+
+85%{
+
+opacity:1;
+
+}
+
+100%{
+
+top:85%;
+
+opacity:0;
+
+}
+
+}
 
 
 .employee-name{
 
-
-font-size:45px;
-
+font-size:39px;
 
 font-weight:800;
 
+line-height:1.1;
 
-color:#0b1f3a;
-
-
-margin-top:25px;
-
+margin-top:10px;
 
 }
 
 
+.employee-position{
+
+color:#91a1b7;
+
+font-size:17px;
+
+margin-top:8px;
+
+}
 
 
+.employee-info{
 
-.info{
+margin-top:20px;
+
+}
 
 
-background:#f1f5f9;
-
-
-border-radius:15px;
-
+.info-box{
 
 padding:15px;
 
+border-radius:15px;
 
-margin-top:15px;
+background:#0b1829;
 
+border:
 
-font-size:22px;
-
-
-font-weight:600;
-
+1px solid var(--border);
 
 }
 
 
+.info-label{
 
-.info i{
+color:#71839c;
 
-color:#0066ff;
+font-size:12px;
 
-font-size:28px;
+text-transform:uppercase;
+
+letter-spacing:1px;
 
 }
 
 
+.info-value{
+
+font-size:19px;
+
+font-weight:700;
+
+margin-top:4px;
+
+}
 
 
+.status-box{
+
+margin-top:20px;
+
+padding:18px;
+
+border-radius:17px;
+
+background:
+
+rgba(32,214,162,.13);
+
+border:
+
+1px solid
+
+rgba(32,214,162,.40);
+
+}
 
 
+.status-text{
 
-.status-card{
+font-size:29px;
 
+font-weight:900;
 
-margin-top:25px;
+color:var(--green);
 
-
-padding:20px;
-
-
-border-radius:20px;
+}
 
 
-background:#16a34a;
+.attendance-time{
 
+font-size:30px;
 
-color:white;
-
-
-font-size:35px;
-
+font-family:monospace;
 
 font-weight:800;
 
+margin-top:5px;
 
 }
 
 
+/* ================= RIGHT ================= */
 
 
-/* RIGHT TABLE */
+.attendance-panel{
+
+padding:25px;
+
+overflow:hidden;
+
+}
 
 
 .section-title{
 
-
-font-size:32px;
-
+font-size:27px;
 
 font-weight:800;
 
+}
 
-color:#0b1f3a;
 
+.section-subtitle{
 
-margin-bottom:25px;
-
+color:#71839c;
 
 }
 
 
+.refresh-status{
 
-.table thead{
+color:var(--green);
 
-
-background:#0b1f3a;
-
-
-color:white;
-
+font-size:13px;
 
 }
 
+
+.table-wrapper{
+
+margin-top:20px;
+
+height:
+
+calc(100% - 70px);
+
+overflow:auto;
+
+}
 
 
 .table{
 
+color:white;
 
-font-size:20px;
-
+vertical-align:middle;
 
 }
 
+
+.table thead{
+
+position:sticky;
+
+top:0;
+
+z-index:5;
+
+}
+
+
+.table thead th{
+
+background:#091728;
+
+color:#71839c;
+
+border:none;
+
+padding:18px;
+
+font-size:13px;
+
+text-transform:uppercase;
+
+}
+
+
+.table tbody td{
+
+background:transparent;
+
+color:#e5edf8;
+
+border-color:
+
+rgba(34,52,77,.65);
+
+padding:17px;
+
+}
+
+
+.table tbody tr{
+
+transition:.25s;
+
+}
+
+
+.table tbody tr:hover{
+
+background:
+
+rgba(32,214,162,.05);
+
+}
 
 
 .avatar{
 
+width:53px;
 
-width:55px;
-
-height:55px;
-
+height:53px;
 
 border-radius:50%;
 
-
 object-fit:cover;
 
+border:
+
+2px solid var(--green);
 
 }
 
 
+.employee-table-name{
 
+font-size:17px;
+
+font-weight:700;
+
+}
+
+
+.employee-number{
+
+font-size:12px;
+
+color:#71839c;
+
+}
+
+
+.badge-in,
+
+.badge-out{
+
+padding:
+
+8px 15px;
+
+border-radius:30px;
+
+font-weight:800;
+
+font-size:12px;
+
+}
 
 
 .badge-in{
 
+color:var(--green);
 
-background:#16a34a;
+background:
 
+rgba(32,214,162,.12);
 
-color:white;
+border:
 
+1px solid
 
-padding:8px 18px;
-
-
-border-radius:20px;
-
-
-font-weight:700;
-
+rgba(32,214,162,.4);
 
 }
-
 
 
 .badge-out{
 
+color:#ff7774;
 
-background:#dc2626;
+background:
 
+rgba(239,83,80,.12);
 
-color:white;
+border:
 
+1px solid
 
-padding:8px 18px;
-
-
-border-radius:20px;
-
-
-font-weight:700;
-
+rgba(239,83,80,.4);
 
 }
 
 
+/* NEW SCAN ANIMATION */
 
 
+.new-scan{
+
+animation:
+
+newAttendance .7s;
+
+}
+
+
+@keyframes newAttendance{
+
+0%{
+
+transform:
+
+scale(.96);
+
+opacity:.3;
+
+box-shadow:
+
+0 0 80px
+
+var(--green);
+
+}
+
+100%{
+
+transform:
+
+scale(1);
+
+opacity:1;
+
+}
+
+}
 
 
 /* RESPONSIVE */
@@ -408,96 +756,28 @@ font-weight:700;
 
 @media(max-width:1200px){
 
-
 body{
 
 overflow:auto;
 
 }
 
-
 .main{
 
 height:auto;
 
 }
 
+.panel{
 
-
-.photo{
-
-width:220px;
-
-height:220px;
+min-height:700px;
 
 }
 
-
-.employee-name{
-
-font-size:35px;
-
 }
-
-
-
-}
-
-
-
-
-
-@media(max-width:768px){
-
-
-.header{
-
-height:auto;
-
-text-align:center;
-
-}
-
-
-
-.logo-title{
-
-font-size:25px;
-
-}
-
-
-
-.clock{
-
-font-size:30px;
-
-}
-
-
-
-.main{
-
-padding:15px;
-
-}
-
-
-
-.card-box{
-
-margin-bottom:20px;
-
-}
-
-
-}
-
-
 
 
 </style>
-
 
 </head>
 
@@ -505,12 +785,10 @@ margin-bottom:20px;
 <body>
 
 
+<!-- ================= HEADER ================= -->
 
 
-<!-- HEADER -->
-
-
-<div class="header">
+<header class="header">
 
 
 <div class="container-fluid">
@@ -519,45 +797,40 @@ margin-bottom:20px;
 <div class="row align-items-center">
 
 
-<div class="col-md-8">
+<div class="col-7">
 
 
-<div class="logo-title">
+<div class="d-flex align-items-center gap-3">
+
+
+<div class="logo-box">
 
 <i class="bi bi-fingerprint"></i>
-
-NTC ATTENDANCE MANAGEMENT SYSTEM
-
-</div>
-
-
-<div class="sub-title">
-
-BIOMETRIC LIVE MONITORING SYSTEM
-
-</div>
-
-
-</div>
-
-
-
-
-<div class="col-md-4 text-end">
-
-
-<div class="clock" id="clock">
-
---:--
 
 </div>
 
 
 <div>
 
-<i class="bi bi-wifi text-success"></i>
 
-DEVICE ONLINE
+<div class="system-title">
+
+NTC
+
+<span>
+
+ATTENDANCE
+
+</span>
+
+SYSTEM
+
+</div>
+
+
+<div class="subtitle">
+
+BIOMETRIC LIVE MONITORING
 
 </div>
 
@@ -571,104 +844,97 @@ DEVICE ONLINE
 </div>
 
 
+<div class="col-5 text-end">
+
+
+<div class="clock"
+
+id="clock">
+
+--:--:--
+
 </div>
 
 
+<div class="date"
+
+id="date">
+
+Loading...
+
+</div>
+
+
+<div class="online mt-1">
+
+<span class="online-dot">
+
+</span>
+
+LIVE MONITORING
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</header>
 
 
 
+<!-- ================= CONTENT ================= -->
 
 
-<!-- BODY -->
+<main class="main">
 
 
-<div class="main">
+<div class="row g-4 main-row">
 
 
-<div class="row g-4">
+<!-- ================= PROFILE ================= -->
 
 
+<div class="col-xl-5">
 
 
+<div
 
-<!-- EMPLOYEE CARD -->
+class="panel profile-panel"
+
+id="profilePanel">
 
 
-<div class="col-lg-5">
+<div class="live-label">
+
+<i class="bi bi-broadcast">
+
+</i>
+
+LIVE
+
+</div>
 
 
-<div class="card-box profile-area">
-
+<div class="photo-wrapper">
 
 
 <img
 
-src="{{asset('images/default.png')}}"
+id="employee_photo"
 
-id="photo"
+src="{{ asset('img/default.jpeg') }}"
 
-class="photo"
-
->
+class="employee-photo">
 
 
-
-<div class="employee-name" id="employee_name">
-
-    @if($attendance)
-
-        {{ $attendance->employee->name }}
-
-    @else
-
-
-
-    Waiting Employee...
-
-    @endif
-
-</div>
-
-
-
-
-
-
-<div class="row">
-
-
-<div class="col-6">
-
-
-<div class="info">
-
-
-<i class="bi bi-person-badge"></i>
-
-
-<br>
-
-
-Employee No
-
-
-<br>
-
-
-<span id="employee_no">
-
-    @if($attendance)
-
-        {{ $attendance->employee->employee_no }}
-
-    @else
-
-        ------
-
-    @endif
-
-</span>
-
+<div class="scan-line">
 
 </div>
 
@@ -676,143 +942,307 @@ Employee No
 </div>
 
 
+<div
 
+class="employee-name"
 
-<div class="col-6">
+id="employee_name">
 
-
-<div class="info">
-
-
-<i class="bi bi-building"></i>
-
-
-<br>
-
-
-Department
-
-
-<br>
-
-
-<span id="department">
-
-    @if($attendance && $attendance->employee->department_name)
-
-    {{ $attendance->employee->department_name }}
-
-    @else
-
-    ------
-
-    @endif
-
-
-</span>
-
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="status-card">
-
-
-<i class="bi bi-check-circle-fill"></i>
-
-
-<span id="status">
 
 @if($attendance)
 
+{{ $attendance->employee->name }}
+
+@else
+
+WAITING FOR SCAN
+
+@endif
+
+
+</div>
+
+
+<div
+
+class="employee-position"
+
+id="employee_position">
+
+
+@if(
+$attendance &&
+$attendance->employee->position
+)
+
+{{ $attendance->employee
+->position->position_name }}
+
+@else
+
+Place your finger on the biometric device
+
+@endif
+
+
+</div>
+
+
+
+<div class="row g-3 employee-info">
+
+
+<div class="col-6">
+
+
+<div class="info-box">
+
+
+<div class="info-label">
+
+Employee Number
+
+</div>
+
+
+<div
+
+class="info-value"
+
+id="employee_no">
+
+
+@if($attendance)
+
+{{
+
+$attendance->employee
+->employee_no ?? '------'
+
+}}
+
+@else
+
+------
+
+@endif
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<div class="col-6">
+
+
+<div class="info-box">
+
+
+<div class="info-label">
+
+Department
+
+</div>
+
+
+<div
+
+class="info-value"
+
+id="department">
+
+
+@if($attendance)
+
+{{
+
+optional(
+
+$attendance->employee
+->department
+
+)->department_name
+
+?? '------'
+
+}}
+
+@else
+
+------
+
+@endif
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div
+
+class="status-box"
+
+id="statusBox">
+
+
+<div
+
+class="status-text"
+
+id="status">
+
+
+@if($attendance)
+
+
 @if($attendance->time_out)
+
+<i class="bi bi-box-arrow-right">
+
+</i>
 
 TIME OUT RECORDED
 
+
 @else
+
+
+<i class="bi bi-check-circle-fill">
+
+</i>
 
 TIME IN RECORDED
 
+
 @endif
+
 
 @else
 
+
+<i class="bi bi-fingerprint">
+
+</i>
+
 READY TO SCAN
+
 
 @endif
 
-</span>
+
+</div>
+
+
+<div
+
+class="attendance-time"
+
+id="attendance_time">
+
+
+@if($attendance)
+
+
+@if($attendance->time_out)
+
+
+{{
+
+\Carbon\Carbon::parse(
+
+$attendance->time_out
+
+)->format('h:i:s A')
+
+}}
+
+
+@else
+
+
+{{
+
+\Carbon\Carbon::parse(
+
+$attendance->time_in
+
+)->format('h:i:s A')
+
+}}
+
+
+@endif
+
+
+@else
+
+--:--:--
+
+@endif
+
+
+</div>
+
+
+</div>
+
+
+</div>
 
 
 </div>
 
 
 
+<!-- ================= TABLE ================= -->
 
 
-<h3 class="mt-4">
-
-<i class="bi bi-clock-history"></i>
-
-<span id="attendance_time">
+<div class="col-xl-7">
 
 
-    @if($attendance)
-
-        @if($attendance->time_out)
-
-        {{ \Carbon\Carbon::parse($attendance->time_out)->format('h:i:s A') }}
-
-        @else
-
-        {{ \Carbon\Carbon::parse($attendance->time_in)->format('h:i:s A') }}
-
-        @endif
-
-    @endif
+<div class="panel attendance-panel">
 
 
-</span>
+<div
+
+class="d-flex
+
+justify-content-between
+
+align-items-center">
 
 
-</h3>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<!-- ATTENDANCE TABLE -->
-
-
-<div class="col-lg-7">
-
-
-<div class="card-box">
+<div>
 
 
 <div class="section-title">
 
 
-<i class="bi bi-list-check"></i>
+<i
+
+class="bi
+
+bi-clock-history
+
+text-success">
+
+
+</i>
+
 
 Recent Attendance
 
@@ -820,9 +1250,45 @@ Recent Attendance
 </div>
 
 
+<div class="section-subtitle">
+
+Latest biometric transactions
+
+</div>
 
 
-<table class="table table-hover align-middle">
+</div>
+
+
+<div
+
+class="refresh-status">
+
+
+<i
+
+class="bi
+
+bi-arrow-repeat">
+
+
+</i>
+
+
+Auto Updating
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="table-wrapper">
+
+
+<table class="table">
 
 
 <thead>
@@ -830,15 +1296,33 @@ Recent Attendance
 
 <tr>
 
-<th>Photo</th>
 
-<th>Name</th>
+<th>
 
-<th>Department</th>
+Employee
 
-<th>Time</th>
+</th>
 
-<th>Status</th>
+
+<th>
+
+Department
+
+</th>
+
+
+<th>
+
+Time
+
+</th>
+
+
+<th>
+
+Status
+
+</th>
 
 
 </tr>
@@ -847,18 +1331,41 @@ Recent Attendance
 </thead>
 
 
+<tbody
 
-<tbody id="recentAttendance">
+id="recentAttendance">
 
- 
 
- 
+<tr>
+
+
+<td
+
+colspan="4"
+
+class="text-center">
+
+
+Waiting for attendance...
+
+
+</td>
+
+
+</tr>
+
 
 </tbody>
+
 
 </table>
 
 
+</div>
+
+
+</div>
+
 
 </div>
 
@@ -866,166 +1373,790 @@ Recent Attendance
 </div>
 
 
-
-
-</div>
-
-
-</div>
-
-
+</main>
 
 
 
 <script>
 
-function clock() {
-    let d = new Date();
-    document.getElementById("clock").innerHTML = d.toLocaleTimeString();
+
+/* ================= CLOCK ================= */
+
+
+function updateClock(){
+
+
+let now=
+
+new Date();
+
+
+document
+
+.getElementById("clock")
+
+.innerHTML=
+
+now.toLocaleTimeString();
+
+
+document
+
+.getElementById("date")
+
+.innerHTML=
+
+now.toLocaleDateString(
+
+'en-US',
+
+{
+
+weekday:'long',
+
+month:'long',
+
+day:'numeric',
+
+year:'numeric'
+
 }
 
-setInterval(clock, 1000);
-clock();
+);
 
-let syncing = false;
+
+}
+
+
+updateClock();
+
+
+setInterval(
+
+updateClock,
+
+1000
+
+);
+
+
+
+/* ================= LIVE DATA ================= */
+
+
+let previousUpdate=null;
+
+
+let loading=false;
+
+
+
+function formatTime(
+
+dateTime
+
+){
+
+
+if(!dateTime){
+
+return "--";
+
+}
+
+
+let date=
+
+new Date(
+
+dateTime.replace(
+
+" ",
+
+"T"
+
+)
+
+);
+
+
+return date
+
+.toLocaleTimeString(
+
+[],
+
+{
+
+hour:
+
+'2-digit',
+
+minute:
+
+'2-digit',
+
+second:
+
+'2-digit'
+
+}
+
+);
+
+
+}
+
+
 
 function loadAttendance(){
 
-    // Huwag magsimula ng panibagong request kung may tumatakbo pa
-    if(syncing) return;
 
-    syncing = true;
+if(loading){
 
-    fetch('/sync-attendance')
-
-    .then(response => response.text())
-
-    .then(() => {
-
-        return fetch('/live/latest');
-
-    })
-
-    .then(response => response.json())
-
-    .then(data => {
-
-        if(!data.attendance){
-
-            syncing = false;
-            return;
-
-        }
-
-        let attendance = data.attendance;
-
-        // ==========================
-        // EMPLOYEE
-        // ==========================
-
-        document.getElementById("employee_name").innerHTML =
-            attendance.employee.name;
-
-        document.getElementById("employee_no").innerHTML =
-            attendance.employee.employee_no ?? "------";
-
-        document.getElementById("department").innerHTML =
-            attendance.employee.department
-            ? attendance.employee.department.department_name
-            : "------";
-
-        document.getElementById("attendance_time").innerHTML =
-            attendance.time_out
-            ? attendance.time_out.substring(11,19)
-            : attendance.time_in.substring(11,19);
-
-        document.getElementById("status").innerHTML =
-            attendance.time_out
-            ? "TIME OUT RECORDED"
-            : "TIME IN RECORDED";
-
-        // ==========================
-        // RECENT TABLE
-        // ==========================
-
-        let html = "";
-
-        data.recent.forEach(function(row){
-
-            html += `
-            <tr>
-
-                <td>
-
-                    <img src="/images/default.png" class="avatar">
-
-                </td>
-
-                <td>
-
-                    ${row.employee.name}
-
-                </td>
-
-                <td>
-
-                    ${
-                        row.employee.department
-                        ? row.employee.department.department_name
-                        : "-"
-                    }
-
-                </td>
-
-                <td>
-
-                    ${
-                        row.time_out
-                        ? row.time_out.substring(11,19)
-                        : row.time_in.substring(11,19)
-                    }
-
-                </td>
-
-                <td>
-
-                    ${
-                        row.time_out
-                        ? '<span class="badge-out">TIME OUT</span>'
-                        : '<span class="badge-in">TIME IN</span>'
-                    }
-
-                </td>
-
-            </tr>`;
-
-        });
-
-        document.getElementById("recentAttendance").innerHTML = html;
-
-    })
-
-    .catch(function(error){
-
-        console.error(error);
-
-    })
-
-    .finally(function(){
-
-        syncing = false;
-
-    });
+return;
 
 }
 
-// Load agad
+
+loading=true;
+
+
+/*
+
+TESTING:
+
+Sync biometric first.
+
+Kapag background sync na,
+
+aalisin natin ito.
+
+*/
+
+
+fetch(
+
+'/sync-attendance'
+
+)
+
+
+.then(
+
+response=>
+
+response.text()
+
+)
+
+
+.then(()=>{
+
+
+return fetch(
+
+'/live/latest'
+
+);
+
+
+})
+
+
+.then(
+
+response=>{
+
+
+if(
+
+!response.ok
+
+){
+
+
+throw new Error(
+
+"Cannot load attendance"
+
+);
+
+
+}
+
+
+return response.json();
+
+
+})
+
+
+.then(data=>{
+
+
+let attendance=
+
+data.attendance;
+
+
+if(!attendance){
+
+return;
+
+}
+
+
+let employee=
+
+attendance.employee;
+
+
+/* PROFILE */
+
+
+document
+
+.getElementById(
+
+"employee_name"
+
+)
+
+.innerHTML=
+
+employee.name;
+
+
+document
+
+.getElementById(
+
+"employee_no"
+
+)
+
+.innerHTML=
+
+employee.employee_no
+
+??
+
+"------";
+
+
+document
+
+.getElementById(
+
+"department"
+
+)
+
+.innerHTML=
+
+employee.department
+
+?
+
+employee.department
+
+.department_name
+
+:
+
+"------";
+
+
+document
+
+.getElementById(
+
+"employee_position"
+
+)
+
+.innerHTML=
+
+employee.position
+
+?
+
+employee.position
+
+.position_name
+
+:
+
+"Employee";
+
+
+let attendanceDate=
+
+attendance.time_out
+
+?
+
+attendance.time_out
+
+:
+
+attendance.time_in;
+
+
+document
+
+.getElementById(
+
+"attendance_time"
+
+)
+
+.innerHTML=
+
+formatTime(
+
+attendanceDate
+
+);
+
+
+let status=
+
+document
+
+.getElementById(
+
+"status"
+
+);
+
+
+let statusBox=
+
+document
+
+.getElementById(
+
+"statusBox"
+
+);
+
+
+if(
+
+attendance.time_out
+
+){
+
+
+status.innerHTML=
+
+'<i class="bi bi-box-arrow-right"></i> TIME OUT RECORDED';
+
+
+statusBox.style
+
+.background=
+
+"rgba(239,83,80,.13)";
+
+
+statusBox.style
+
+.borderColor=
+
+"rgba(239,83,80,.50)";
+
+
+status.style.color=
+
+"#ff7774";
+
+
+}
+
+
+else{
+
+
+status.innerHTML=
+
+'<i class="bi bi-check-circle-fill"></i> TIME IN RECORDED';
+
+
+statusBox.style
+
+.background=
+
+"rgba(32,214,162,.13)";
+
+
+statusBox.style
+
+.borderColor=
+
+"rgba(32,214,162,.50)";
+
+
+status.style.color=
+
+"#20d6a2";
+
+
+}
+
+
+/* ANIMATION */
+
+
+if(
+
+previousUpdate
+
+!==
+
+attendance.updated_at
+
+){
+
+
+let panel=
+
+document
+
+.getElementById(
+
+"profilePanel"
+
+);
+
+
+panel.classList
+
+.remove(
+
+"new-scan"
+
+);
+
+
+void panel
+
+.offsetWidth;
+
+
+panel.classList
+
+.add(
+
+"new-scan"
+
+);
+
+
+previousUpdate=
+
+attendance.updated_at;
+
+
+}
+
+
+
+/* TABLE */
+
+
+let html="";
+
+
+data.recent
+
+.forEach(
+
+function(row){
+
+
+if(
+
+!row.employee
+
+){
+
+return;
+
+}
+
+
+let rowEmployee=
+
+row.employee;
+
+
+let rowTime=
+
+row.time_out
+
+?
+
+row.time_out
+
+:
+
+row.time_in;
+
+
+html+=`
+
+
+<tr>
+
+
+<td>
+
+
+<div
+
+class="d-flex
+
+align-items-center
+
+gap-3">
+
+
+<img
+
+src="/img/default.jpeg"
+
+class="avatar">
+
+
+<div>
+
+
+<div
+
+class="employee-table-name">
+
+
+${
+
+rowEmployee.name
+
+}
+
+
+</div>
+
+
+<div
+
+class="employee-number">
+
+
+${
+
+rowEmployee.employee_no
+
+??
+
+"NO EMPLOYEE NUMBER"
+
+}
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</td>
+
+
+<td>
+
+
+${
+
+rowEmployee.department
+
+?
+
+rowEmployee.department
+
+.department_name
+
+:
+
+"-"
+
+}
+
+
+</td>
+
+
+<td>
+
+
+<strong>
+
+
+${
+
+formatTime(
+
+rowTime
+
+)
+
+}
+
+
+</strong>
+
+
+</td>
+
+
+<td>
+
+
+${
+
+
+row.time_out
+
+
+?
+
+
+'<span class="badge-out">TIME OUT</span>'
+
+
+:
+
+
+'<span class="badge-in">TIME IN</span>'
+
+
+}
+
+
+</td>
+
+
+</tr>
+
+
+`;
+
+
+});
+
+
+document
+
+.getElementById(
+
+"recentAttendance"
+
+)
+
+.innerHTML=
+
+html
+
+||
+
+`
+
+
+<tr>
+
+
+<td
+
+colspan="4"
+
+class="text-center">
+
+
+No attendance records
+
+
+</td>
+
+
+</tr>
+
+
+`;
+
+
+})
+
+
+.catch(
+
+error=>{
+
+
+console.error(
+
+"Attendance error:",
+
+error
+
+);
+
+
+})
+
+
+.finally(()=>{
+
+
+loading=false;
+
+
+});
+
+
+}
+
+
+
+/* LOAD IMMEDIATELY */
+
+
 loadAttendance();
 
-// Every 2 seconds
-setInterval(loadAttendance, 2000);
+
+
+/*
+
+CHECK EVERY 3 SECONDS
+
+*/
+
+
+setInterval(
+
+loadAttendance,
+
+3000
+
+);
+
 
 </script>
+
+
 </body>
 
 </html>
