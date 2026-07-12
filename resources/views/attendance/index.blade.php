@@ -382,61 +382,12 @@
   </head>
   <body>
     <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="brand-icon">
-          <i class="bi bi-fingerprint"></i>
-        </div>
-        <div>
-          <div class="brand-title"> NTC DTR </div>
-          <div class="brand-subtitle"> ATTENDANCE SYSTEM </div>
-        </div>
-      </div>
-      <div class="menu-title"> MAIN MENU </div>
-      <a href="{{ route('dashboard') }}" class="nav-link">
-        <i class="bi bi-grid-1x2-fill"></i>
-        <span>Dashboard</span>
-      </a>
-      <a href="{{ route('employees.index') }}" class="nav-link">
-        <i class="bi bi-people-fill"></i>
-        <span>Employees</span>
-      </a>
-      <a href="{{ route('departments.index') }}" class="nav-link">
-        <i class="bi bi-building"></i>
-        <span>Departments</span>
-      </a>
-      <a href="{{ route('positions.index') }}" class="nav-link">
-        <i class="bi bi-briefcase-fill"></i>
-        <span>Positions</span>
-      </a>
-      <a href="{{ route('attendance.index') }}" class="nav-link active">
-        <i class="bi bi-calendar-check-fill"></i>
-        <span>Attendance</span>
-      </a>
-      <div class="menu-title"> REPORTS </div>
-      <a href="#" class="nav-link">
-        <i class="bi bi-bar-chart-fill"></i>
-        <span>Attendance Reports</span>
-      </a>
-      <a href="#" class="nav-link">
-        <i class="bi bi-file-earmark-pdf-fill"></i>
-        <span>DTR Reports</span>
-      </a>
-      <div class="menu-title"> SYSTEM </div>
-      <a href="{{ url('/live') }}" target="_blank" class="nav-link">
-        <i class="bi bi-display-fill"></i>
-        <span>Live Monitor</span>
-      </a>
-      <a href="#" class="nav-link">
-        <i class="bi bi-gear-fill"></i>
-        <span>Settings</span>
-      </a>
-    </aside>
+   @include ('layouts.sidebar')
     <!-- MAIN -->
     <div class="main">
       <header class="topbar">
         <div>
-          <div class="page-title"> Attendance Records </div>
+          <div class="page-title">  <i class="bi bi-calendar text-primary"></i> Attendance Records </div>
           <div class="page-subtitle"> View and filter employee daily attendance </div>
         </div>
         <div class="d-flex align-items-center gap-3">
@@ -468,17 +419,7 @@
               <div class="col-xl-2 col-md-6">
                 <label class="form-label fw-bold"> Department </label>
                 <select name="department_id" class="form-select">
-                  <option value=""> All Departments </option> @foreach($departments as $department) <option value="{{ $department->id }}" {{
-
-request('department_id')
-
-== $department->id
-
-? 'selected'
-
-: ''
-
-}}>
+                  <option value=""> All Departments </option> @foreach($departments as $department) <option value="{{ $department->id }}" {{ request('department_id') == $department->id ? 'selected' : '' }}>
                     {{ $department->department_name }}
                   </option> @endforeach
                 </select>

@@ -6,6 +6,7 @@ use App\Employee;
 use App\Department;
 use App\Position;
 use Illuminate\Http\Request;
+use App\WorkSchedule;
 class EmployeeController extends Controller
 {
     public function index()
@@ -27,13 +28,13 @@ class EmployeeController extends Controller
     // ADD EMPLOYEE PAGE
     public function create()
     {
-        $departments = Department::orderBy('department_name')
-        ->get();
-
+        $departments = Department::orderBy('department_name')->get();
         $positions = Position::all();
+        $workSchedules = WorkSchedule::orderBy('schedule_name')->get();
 
         return view('employees.create', compact(
             'departments',
+            'workSchedules',
             'positions'
         ));
     }
@@ -43,12 +44,7 @@ class EmployeeController extends Controller
     {
         $request->validate([
 
-            'name' => [
-                'required',
-                'string',
-                'max:255'
-            ],
-
+            'name' => ['required','string','max:255'],
             'biometric_userid' => [
                 'required',
                 'string',
@@ -94,45 +90,30 @@ class EmployeeController extends Controller
                 'image',
                 'mimes:jpg,jpeg,png',
                 'max:2048'
-            ]
+            ],
+
+            'work_schedule_id' => 'nullable|exists:work_schedules,id',
 
         ]);
 
 
         $employee = new Employee();
-
-        $employee->name = $request->name;
-
-        $employee->biometric_userid = $request->biometric_userid;
-
-        $employee->biometric_uid = $request->biometric_uid;
-
-        $employee->employee_no = $request->employee_no;
-
-        $employee->department_id = $request->department_id;
-
-        $employee->position_id = $request->position_id;
-
+        $employee->name = $request->name; 
+        $employee->biometric_userid = $request->biometric_userid; 
+        $employee->biometric_uid = $request->biometric_uid; 
+        $employee->employee_no = $request->employee_no; 
+        $employee->department_id = $request->department_id; 
+        $employee->position_id = $request->position_id; 
         $employee->contact_no = $request->contact_no;
-
-        $employee->address = $request->address;
-
+        $employee->address = $request->address; 
         $employee->status = $request->has('status');
 
         // PHOTO UPLOAD
         if ($request->hasFile('photo')) {
-
-            $employee->photo =
-                $request->file('photo')
-                        ->store('employees', 
-                                'public'
-                            );
+            $employee->photo = $request->file('photo')
+                                       ->store('employees', 'public');
         }
-
-
         $employee->save();
-
-
         return redirect()->route('employees.index')->with(
                 'success',
                 'Employee added successfully!'
@@ -144,17 +125,15 @@ class EmployeeController extends Controller
     public function edit($id)
     {
         $employee = Employee::findOrFail($id);
-
-        $departments = Department::orderBy('department_name')
-            ->get();
-
-        // Kung wala ka pang positions, collect([]) muna
-        $positions = Position::orderBy('position_name')
-            ->get();
+        $departments = Department::orderBy('department_name')->get();
+        $positions = Position::orderBy('position_name')->get();
+        $workSchedules = WorkSchedule::orderBy('schedule_name')
+        ->get();
 
         return view('employees.edit', compact(
             'employee',
             'departments',
+            'workSchedules',
             'positions'
         ));
     }
@@ -164,7 +143,6 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         $employee = Employee::findOrFail($id);
-
         $request->validate([
 
             'name' => [
@@ -218,28 +196,19 @@ class EmployeeController extends Controller
                 'image',
                 'mimes:jpg,jpeg,png',
                 'max:2048'
-            ]
+            ],
+
+            'work_schedule_id' => 'nullable|exists:work_schedules,id',
 
         ]);
 
 
         $employee->name = $request->name;
-
-        $employee->employee_no =
-            $request->employee_no;
-
-        $employee->biometric_userid =
-            $request->biometric_userid;
-
-        $employee->biometric_uid =
-            $request->biometric_uid;
-
-        $employee->department_id =
-            $request->department_id;
-
-        $employee->position_id =
-            $request->position_id;
-
+        $employee->employee_no = $request->employee_no;
+        $employee->biometric_userid = $request->biometric_userid;
+        $employee->biometric_uid = $request->biometric_uid;
+        $employee->department_id = $request->department_id;
+        $employee->position_id = $request->position_id;
         $employee->contact_no =
             $request->contact_no;
 

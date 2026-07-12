@@ -1,0 +1,1143 @@
+
+:root{
+    --background:#06101e;
+    --panel:#0d1c30;
+    --panel-two:#101f35;
+    --border:#203550;
+
+    --primary:#3987ff;
+    --primary-light:#64a2ff;
+
+    --green:#20d6a2;
+    --red:#ff6764;
+
+    --text:#f2f7ff;
+    --muted:#8293aa;
+}
+
+
+/* GLOBAL */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    height:100%;
+}
+
+body{
+    margin:0;
+
+    width:100%;
+    height:100vh;
+
+    overflow:hidden;
+
+    color:var(--text);
+
+    font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+    background:
+
+    radial-gradient(
+        circle at 10% 5%,
+        rgba(57,135,255,.15),
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 90% 100%,
+        rgba(32,214,162,.08),
+        transparent 35%
+    ),
+
+    var(--background);
+
+    transition:
+    background .35s,
+    color .35s;
+}
+
+
+/* ==================================================
+HEADER
+================================================== */
+
+.header{
+    width:100%;
+    height:120px;
+
+    padding:
+    15px 40px;
+
+    display:flex;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    color:#f2f7ff;
+
+    background:
+    rgba(6,16,30,.97);
+
+    border-bottom:
+    1px solid #203550;
+
+    box-shadow:
+    0 8px 35px
+    rgba(0,0,0,.25);
+
+    transition:
+    background .35s,
+    border-color .35s;
+}
+
+
+.header .container-fluid{
+    width:100%;
+}
+
+
+/* HEADER LOGO */
+
+.logo-box{
+    width:62px;
+    height:62px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#64a2ff;
+
+    font-size:32px;
+
+    border:
+
+    1px solid
+
+    rgba(57,135,255,.50);
+
+    border-radius:17px;
+
+    background:
+
+    rgba(57,135,255,.15);
+
+    box-shadow:
+
+    0 0 25px
+
+    rgba(57,135,255,.17);
+}
+
+
+/* AGENCY */
+
+.agency-name{
+    margin:0;
+
+    color:#f2f7ff;
+
+    font-size:27px;
+
+    font-weight:900;
+
+    line-height:1;
+
+    letter-spacing:.4px;
+
+    white-space:nowrap;
+}
+
+
+/* SYSTEM NAME */
+
+.system-name{
+    margin-top:8px;
+
+    color:#f2f7ff;
+
+    font-size:28px;
+
+    font-weight:900;
+
+    line-height:1;
+}
+
+
+.system-name span{
+    color:#64a2ff;
+}
+
+
+/* SUBTITLE */
+
+.subtitle{
+    margin-top:9px;
+    color:#126ff7;
+    font-size:11px;
+    font-weight:700;
+    line-height:1;
+    letter-spacing:3px;
+}
+
+
+/* CLOCK */
+
+.clock{
+    color:#f2f7ff;
+
+    font-family:
+    Consolas,
+    monospace;
+
+    font-size:31px;
+
+    font-weight:900;
+
+    line-height:1;
+}
+
+
+.date{
+    margin-top:6px;
+
+    color:#8293aa;
+
+    font-size:12px;
+}
+
+
+/* ONLINE */
+
+.online{
+    color:red;
+
+    font-size:12px;
+
+    font-weight:900;
+}
+
+
+.online-dot{
+    width:9px;
+    height:9px;
+    display:inline-block;
+    margin-right:5px;
+    border-radius:50%;
+    background:red;
+    box-shadow:
+    0 0 15px
+
+    red;
+
+    animation:
+
+    onlinePulse
+
+    1.7s
+
+    infinite;
+}
+
+
+@keyframes onlinePulse{
+
+    0%{
+
+        opacity:.45;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:
+
+        scale(1.25);
+
+    }
+
+    100%{
+
+        opacity:.45;
+
+    }
+
+}
+
+
+/* ==================================================
+THEME BUTTON
+================================================== */
+
+.theme-toggle{
+    width:50px;
+    height:50px;
+
+    margin-right:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#7cb1ff;
+
+    font-size:21px;
+
+    cursor:pointer;
+
+    border:
+
+    1px solid
+
+    rgba(57,135,255,.45);
+
+    border-radius:15px;
+
+    background:
+
+    rgba(57,135,255,.13);
+
+    transition:.25s;
+}
+
+
+.theme-toggle:hover{
+
+    color:white;
+
+    border-color:
+
+    #3987ff;
+
+    background:
+
+    #3987ff;
+
+    transform:
+
+    translateY(-3px);
+
+    box-shadow:
+
+    0 10px 28px
+
+    rgba(57,135,255,.38);
+
+}
+
+
+/* ==================================================
+MAIN
+================================================== */
+
+.main{
+
+    height:
+
+    calc(
+
+        100vh - 120px
+
+    );
+
+    padding:
+
+    25px 35px;
+
+}
+
+
+.main-row{
+
+    height:100%;
+
+}
+
+
+.panel{
+
+    height:100%;
+
+    overflow:hidden;
+
+    border:
+
+    1px solid
+
+    #203550;
+
+    border-radius:25px;
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(16,31,53,.98),
+
+        rgba(10,24,42,.98)
+
+    );
+
+    box-shadow:
+
+    0 22px 65px
+
+    rgba(0,0,0,.30);
+
+    transition:
+
+    background .35s,
+
+    border-color .35s,
+
+    box-shadow .35s;
+
+}
+
+
+/* ==================================================
+PROFILE
+================================================== */
+
+.profile-panel{
+
+    position:relative;
+
+    padding:24px;
+
+    overflow:hidden;
+
+    text-align:center;
+
+}
+
+
+.profile-panel::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-170px;
+
+    left:-150px;
+
+    width:400px;
+
+    height:400px;
+
+    border-radius:50%;
+
+    background:
+
+    rgba(57,135,255,.07);
+
+    filter:
+
+    blur(15px);
+
+}
+
+
+.live-label{
+
+    position:absolute;
+    top:20px;
+    right:20px;
+    padding:7px 15px;
+    color:#70acff;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    border:
+
+    1px solid
+
+    rgba(57,135,255,.40);
+
+    border-radius:30px;
+
+    background:
+
+    rgba(57,135,255,.12);
+
+}
+
+
+.photo-wrapper{
+
+    width:270px;
+
+    height:270px;
+
+    position:relative;
+
+    margin:
+
+    24px auto 17px;
+
+}
+
+
+.employee-photo{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    border:
+
+    8px solid
+
+    #0d1c30;
+
+    border-radius:50%;
+
+    background:
+
+    #14233a;
+
+    box-shadow:
+
+    0 0 0 5px
+
+    #3987ff,
+
+    0 0 50px
+
+    rgba(57,135,255,.25);
+
+}
+
+
+.scan-line{
+
+    position:absolute;
+
+    left:15px;
+
+    right:15px;
+
+    height:3px;
+
+    border-radius:10px;
+
+    background:
+
+    #64a2ff;
+
+    box-shadow:
+
+    0 0 18px
+
+    #3987ff;
+
+    animation:
+
+    scan 3s infinite;
+
+}
+
+
+@keyframes scan{
+
+    0%{
+
+        top:15%;
+
+        opacity:0;
+
+    }
+
+    15%{
+
+        opacity:1;
+
+    }
+
+    85%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        top:85%;
+
+        opacity:0;
+
+    }
+
+}
+
+
+.employee-name{
+
+    position:relative;
+
+    color:#f2f7ff;
+
+    font-size:37px;
+
+    font-weight:900;
+
+    line-height:1.1;
+
+}
+
+
+.employee-position{
+
+    position:relative;
+
+    min-height:25px;
+
+    margin-top:7px;
+
+    color:#8293aa;
+
+    font-size:16px;
+
+}
+
+
+.employee-info{
+
+    position:relative;
+
+    margin-top:18px;
+
+}
+
+
+.info-box{
+
+    height:100%;
+
+    padding:14px;
+
+    border:
+
+    1px solid
+
+    #203550;
+
+    border-radius:15px;
+
+    background:
+
+    rgba(5,16,30,.48);
+
+}
+
+
+.info-icon{
+
+    margin-bottom:4px;
+
+    color:#64a2ff;
+
+    font-size:20px;
+
+}
+
+
+.info-label{
+
+    color:#8293aa;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+}
+
+
+.info-value{
+
+    margin-top:4px;
+
+    color:#f2f7ff;
+
+    font-size:18px;
+
+    font-weight:800;
+
+}
+
+
+.status-box{
+
+    position:relative;
+
+    margin-top:18px;
+
+    padding:16px;
+
+    border:
+
+    1px solid
+
+    rgba(32,214,162,.45);
+
+    border-radius:17px;
+
+    background:
+
+    rgba(32,214,162,.11);
+
+}
+
+
+.status-text{
+
+    color:#20d6a2;
+
+    font-size:27px;
+
+    font-weight:900;
+
+}
+
+
+.attendance-time{
+
+    margin-top:3px;
+
+    color:#f2f7ff;
+
+    font-family:
+
+    Consolas,
+
+    monospace;
+
+    font-size:28px;
+
+    font-weight:900;
+
+}
+
+
+/* ==================================================
+ATTENDANCE
+================================================== */
+
+.attendance-panel{
+
+    padding:25px;
+
+}
+
+
+.section-title{
+
+    color:#f2f7ff;
+
+    font-size:26px;
+
+    font-weight:900;
+
+}
+
+
+.section-title i{
+
+    color:#64a2ff;
+
+}
+
+
+.section-subtitle{
+
+    color:#8293aa;
+
+    font-size:14px;
+
+}
+
+
+.refresh-status{
+
+    padding:
+
+    7px 13px;
+
+    color:#20d6a2;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    border:
+
+    1px solid
+
+    rgba(32,214,162,.30);
+
+    border-radius:25px;
+
+    background:
+
+    rgba(32,214,162,.08);
+
+}
+
+
+.table-wrapper{
+
+    height:
+
+    calc(
+
+        100% - 75px
+
+    );
+
+    margin-top:20px;
+
+    overflow:auto;
+
+    border-radius:15px;
+
+}
+
+
+.table{
+
+    margin:0;
+
+    color:#f2f7ff;
+
+    vertical-align:middle;
+
+}
+
+
+.table thead{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:5;
+
+}
+
+
+.table thead th{
+
+    padding:17px;
+
+    color:#8293aa;
+
+    background:#08172a;
+
+    border:0;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    letter-spacing:.7px;
+
+}
+
+
+.table tbody td{
+
+    padding:16px;
+
+    color:#e8f1ff;
+
+    background:transparent;
+
+    border-color:
+
+    rgba(32,53,80,.72);
+
+}
+
+
+.avatar{
+
+    width:52px;
+
+    height:52px;
+
+    object-fit:cover;
+
+    border:
+
+    2px solid
+
+    #3987ff;
+
+    border-radius:50%;
+
+}
+
+
+.employee-table-name{
+
+    color:#f2f7ff;
+
+    font-size:16px;
+
+    font-weight:800;
+
+}
+
+
+.employee-number{
+
+    color:#8293aa;
+
+    font-size:11px;
+
+}
+
+
+/* ==================================================
+LIGHT MODE
+================================================== */
+
+body.light-theme{
+
+    color:#172033;
+
+    background:
+
+    radial-gradient(
+
+        circle at 10% 5%,
+
+        rgba(57,135,255,.16),
+
+        transparent 32%
+
+    ),
+
+    #edf4fc;
+
+}
+
+
+body.light-theme .header{
+
+    color:#172033;
+
+    background:
+
+    rgba(255,255,255,.98);
+
+    border-color:
+
+    #dce6f2;
+
+    box-shadow:
+
+    0 7px 30px
+
+    rgba(35,65,105,.10);
+
+}
+
+
+body.light-theme .agency-name,
+
+body.light-theme .system-name,
+
+body.light-theme .clock{
+
+    color:#172033;
+
+}
+
+
+body.light-theme .system-name span{
+
+    color:#5793f5;
+
+}
+
+
+body.light-theme .panel{
+
+    border-color:
+
+    #dce6f2;
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        #ffffff,
+
+        #f6faff
+
+    );
+
+    box-shadow:
+
+    0 20px 55px
+
+    rgba(39,74,117,.11);
+
+}
+
+
+body.light-theme .employee-name,
+
+body.light-theme .info-value,
+
+body.light-theme .attendance-time,
+
+body.light-theme .section-title,
+
+body.light-theme .employee-table-name{
+
+    color:#172033;
+
+}
+
+
+body.light-theme .info-box{
+
+    border-color:
+
+    #dce6f2;
+
+    background:
+
+    #f1f6fc;
+
+}
+
+
+body.light-theme .employee-photo{
+
+    border-color:white;
+
+    background:
+
+    #e7eef7;
+
+}
+
+
+body.light-theme .table{
+
+    color:#172033;
+
+}
+
+
+body.light-theme .table thead th{
+
+    color:#607089;
+
+    background:#eaf2fc;
+
+}
+
+
+body.light-theme .table tbody td{
+
+    color:#26364d;
+
+    border-color:#e2eaf4;
+
+}
+
+
+body.light-theme .theme-toggle{
+
+    color:#f59e0b;
+
+    border-color:#f2d994;
+
+    background:#fff7dc;
+
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:1200px){
+
+    body{
+
+        height:auto;
+
+        overflow:auto;
+
+    }
+
+    .main{
+
+        height:auto;
+
+    }
+
+    .panel{
+
+        min-height:700px;
+
+    }
+
+}
+
+
+@media(max-width:900px){
+
+    .agency-name{
+
+        font-size:17px;
+
+        white-space:normal;
+
+    }
+
+    .system-name{
+
+        font-size:20px;
+
+    }
+
+    .clock{
+
+        font-size:22px;
+
+    }
+
+}
+

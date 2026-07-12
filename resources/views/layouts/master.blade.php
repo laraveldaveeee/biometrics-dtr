@@ -348,6 +348,7 @@
         .nav-link span {
           display: none;
         }
+        
 
         .main {
           margin-left: 85px;
@@ -359,4 +360,9 @@
 
 
 
+    <!-- SIDEBAR -->
+@include ('layouts.sidebar')
 @yield ('content')
+
+  </body>
+</html>

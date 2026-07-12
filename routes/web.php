@@ -66,6 +66,7 @@ Route::get('/attendance', 'AttendanceController@index')->name('attendance.index'
 
 //WorkSchedule
 
+
 Route::get('/work-schedules', 'WorkScheduleController@index')->name('work-schedules.index');
 Route::get('/work-schedules/create','WorkScheduleController@create')->name('work-schedules.create');
 Route::post('/work-schedules','WorkScheduleController@store')->name('work-schedules.store');
@@ -73,3 +74,12 @@ Route::get('/work-schedules/{id}/edit','WorkScheduleController@edit')->name('wor
 Route::put('/work-schedules/{id}','WorkScheduleController@update')->name('work-schedules.update');
 
 Route::delete('/work-schedules/{id}', 'WorkScheduleController@destroy' )->name('work-schedules.destroy');
+
+Route::get('/reports/daily', 'DailyAttendanceReportController@index')->name('reports.daily');
+
+Route::get('/reports/monthly', 'MonthlyDTRController@index')->name('reports.monthly');
+Route::get('/reports/monthly/print', 'MonthlyDTRController@print')->name('reports.monthly.print');
+
+Route::get('/reports/monthly/pdf', 'MonthlyDTRController@pdf')->name('reports.monthly.pdf');
+Route::get('/settings','SystemSettingController@index')->name('settings.index');
+Route::post('/settings','SystemSettingController@update')->name('settings.update');

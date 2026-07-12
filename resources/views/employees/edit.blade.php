@@ -4,333 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Employee | NTC DTR</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-      :root {
-        --sidebar: #071426;
-        --primary: #1769e8;
-        --background: #f1f5f9;
-        --text: #172033;
-        --muted: #718096;
-      }
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/edit-employee.css') }}" rel="stylesheet">
 
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        min-height: 100vh;
-        background: var(--background);
-        font-family: "Segoe UI", Arial, sans-serif;
-        color: var(--text);
-      }
-
-      /* SIDEBAR */
-      .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 270px;
-        height: 100vh;
-        padding: 25px 18px;
-        color: white;
-        background:
-          linear-gradient(180deg,
-            #071426,
-            #0c2443);
-        overflow-y: auto;
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 13px;
-        padding: 5px 10px 30px;
-        border-bottom:
-          1px solid rgba(255, 255, 255, .10);
-      }
-
-      .brand-icon {
-        width: 52px;
-        height: 52px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        border-radius: 15px;
-        color: white;
-        background: var(--primary);
-        font-size: 28px;
-      }
-
-      .brand-title {
-        font-size: 22px;
-        font-weight: 800;
-      }
-
-      .brand-subtitle {
-        color: #91a4be;
-        font-size: 11px;
-        letter-spacing: 1px;
-      }
-
-      .menu-title {
-        margin: 28px 14px 10px;
-        color: #6f829d;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 1.5px;
-      }
-
-      .nav-link {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        margin-bottom: 7px;
-        padding: 14px 16px;
-        border-radius: 13px;
-        color: #b7c4d7;
-        font-weight: 600;
-        transition: .25s;
-      }
-
-      .nav-link i {
-        width: 24px;
-        font-size: 20px;
-      }
-
-      .nav-link:hover {
-        color: white;
-        background:
-          rgba(255, 255, 255, .08);
-      }
-
-      .nav-link.active {
-        color: white;
-        background:
-          linear-gradient(90deg,
-            #1769e8,
-            #3184ff);
-        box-shadow:
-          0 8px 25px rgba(23, 105, 232, .30);
-      }
-
-      /* MAIN */
-      .main {
-        margin-left: 270px;
-        min-height: 100vh;
-      }
-
-      .topbar {
-        height: 85px;
-        padding: 0 35px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background: white;
-        border-bottom: 1px solid #e5eaf1;
-      }
-
-      .page-title {
-        font-size: 25px;
-        font-weight: 800;
-      }
-
-      .page-subtitle {
-        color: var(--muted);
-        font-size: 14px;
-      }
-
-      .admin-avatar {
-        width: 43px;
-        height: 43px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        color: white;
-        background: var(--primary);
-        font-size: 20px;
-      }
-
-      .content {
-        padding: 30px 35px;
-      }
-
-      /* FORM */
-      .form-card {
-        max-width: 1200px;
-        margin: auto;
-        padding: 30px;
-        border-radius: 22px;
-        background: white;
-        box-shadow:
-          0 8px 30px rgba(26, 45, 76, .07);
-      }
-
-      .form-title {
-        font-size: 22px;
-        font-weight: 800;
-      }
-
-      .form-description {
-        color: var(--muted);
-        font-size: 13px;
-      }
-
-      .section-title {
-        margin: 30px 0 18px;
-        padding-bottom: 12px;
-        border-bottom: 1px solid #e9edf3;
-        font-size: 15px;
-        font-weight: 800;
-      }
-
-      .form-label {
-        font-size: 13px;
-        font-weight: 700;
-      }
-
-      .form-control,
-      .form-select {
-        min-height: 48px;
-        border-radius: 12px;
-        border: 1px solid #dce3ec;
-      }
-
-      textarea.form-control {
-        min-height: 110px;
-      }
-
-      .form-control:focus,
-      .form-select:focus {
-        border-color: var(--primary);
-        box-shadow:
-          0 0 0 4px rgba(23, 105, 232, .10);
-      }
-
-      /* PHOTO */
-      .photo-box {
-        min-height: 230px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 20px;
-        border: 2px dashed #cbd5e1;
-        border-radius: 18px;
-        background: #f8fafc;
-      }
-
-      .photo-preview {
-        width: 135px;
-        height: 135px;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 5px solid white;
-        background: #e9eef5;
-        box-shadow:
-          0 5px 20px rgba(0, 0, 0, .12);
-      }
-
-      /* BUTTONS */
-      .btn-update {
-        height: 48px;
-        padding: 0 25px;
-        border: 0;
-        border-radius: 12px;
-        color: white;
-        background: var(--primary);
-        font-weight: 700;
-      }
-
-      .btn-update:hover {
-        color: white;
-        background: #105acb;
-      }
-
-      .btn-cancel {
-        height: 48px;
-        padding: 0 25px;
-        display: flex;
-        align-items: center;
-        border-radius: 12px;
-        font-weight: 700;
-      }
-
-      /* RESPONSIVE */
-      @media(max-width:992px) {
-        .sidebar {
-          width: 85px;
-        }
-
-        .brand-title,
-        .brand-subtitle,
-        .menu-title,
-        .nav-link span {
-          display: none;
-        }
-
-        .main {
-          margin-left: 85px;
-        }
-      }
-    </style>
   </head>
   <body>
     <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="brand-icon">
-          <i class="bi bi-fingerprint"></i>
-        </div>
-        <div>
-          <div class="brand-title"> NTC DTR </div>
-          <div class="brand-subtitle"> ATTENDANCE SYSTEM </div>
-        </div>
-      </div>
-      <div class="menu-title"> MAIN MENU </div>
-      <a href="{{ route('dashboard') }}" class="nav-link">
-        <i class="bi bi-grid-1x2-fill"></i>
-        <span>Dashboard</span>
-      </a>
-      <a href="{{ route('employees.index') }}" class="nav-link active">
-        <i class="bi bi-people-fill"></i>
-        <span>Employees</span>
-      </a>
-      <a href="#" class="nav-link">
-        <i class="bi bi-building"></i>
-        <span>Departments</span>
-      </a>
-      <a href="#" class="nav-link">
-        <i class="bi bi-briefcase-fill"></i>
-        <span>Positions</span>
-      </a>
-      <a href="#" class="nav-link">
-        <i class="bi bi-calendar-check-fill"></i>
-        <span>Attendance</span>
-      </a>
-      <div class="menu-title"> REPORTS </div>
-      <a href="#" class="nav-link">
-        <i class="bi bi-bar-chart-fill"></i>
-        <span>Attendance Reports</span>
-      </a>
-      <a href="#" class="nav-link">
-        <i class="bi bi-file-earmark-pdf-fill"></i>
-        <span>DTR Reports</span>
-      </a>
-      <div class="menu-title"> SYSTEM </div>
-      <a href="{{ url('/live') }}" target="_blank" class="nav-link">
-        <i class="bi bi-display-fill"></i>
-        <span>Live Monitor</span>
-      </a>
-      <a href="#" class="nav-link">
-        <i class="bi bi-gear-fill"></i>
-        <span>Settings</span>
-      </a>
-    </aside>
+  @include ('layouts.sidebar')
     <!-- MAIN -->
     <div class="main">
       <header class="topbar">
@@ -418,23 +99,29 @@ old(
                   <div class="col-md-6">
                     <label class="form-label"> Position </label>
                     <select name="position_id" class="form-select">
-                      <option value=""> Select Position </option> @foreach($positions as $position) <option value="{{ $position->id }}" {{
-
-old(
-    'position_id',
-    $employee->position_id
-)
-
-== $position->id
-
-? 'selected'
-
-: ''
-
-}}>
+                      <option value=""> Select Position </option> @foreach($positions as $position) <option value="{{ $position->id }}" {{ old('position_id', $employee->position_id)  == $position->id ? 'selected' : ''}}>
                         {{ $position->position_name }}
                       </option> @endforeach
                     </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="work_schedule_id"> Work Schedule </label>
+                    <select name="work_schedule_id" id="work_schedule_id" class="form-control">
+                      <option value=""> Select Work Schedule </option> @foreach($workSchedules as $schedule) <option value="{{ $schedule->id }}" {{
+                                    old(
+                                        'work_schedule_id',
+                                        $employee->work_schedule_id
+                                    ) == $schedule->id
+
+                                    ? 'selected'
+
+                                    : ''
+                                }}>
+                        {{ $schedule->schedule_name }} — {{ \Carbon\Carbon::parse($schedule->time_in)->format('h:i A') }} to {{ \Carbon\Carbon::parse($schedule->time_out)->format('h:i A') }}
+                      </option> @endforeach
+                    </select> @error('work_schedule_id') <small class="text-danger">
+                      {{ $message }}
+                    </small> @enderror
                   </div>
                   <!-- CONTACT -->
                   <div class="col-md-6">

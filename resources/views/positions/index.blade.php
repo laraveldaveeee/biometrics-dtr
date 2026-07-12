@@ -265,43 +265,7 @@
     </style>
   </head>
   <body>
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="brand-icon">
-          <i class="bi bi-fingerprint"></i>
-        </div>
-        <div>
-          <div class="brand-title"> NTC DTR </div>
-          <div class="brand-subtitle"> ATTENDANCE SYSTEM </div>
-        </div>
-      </div>
-      <div class="menu-title"> MAIN MENU </div>
-      <a href="{{ route('dashboard') }}" class="nav-link">
-        <i class="bi bi-grid-1x2-fill"></i>
-        <span>Dashboard</span>
-      </a>
-      <a href="{{ route('employees.index') }}" class="nav-link">
-        <i class="bi bi-people-fill"></i>
-        <span>Employees</span>
-      </a>
-      <a href="{{ route('departments.index') }}" class="nav-link">
-        <i class="bi bi-building"></i>
-        <span>Departments</span>
-      </a>
-      <a href="{{ route('positions.index') }}" class="nav-link active">
-        <i class="bi bi-briefcase-fill"></i>
-        <span>Positions</span>
-      </a>
-     <a
-        href="{{ route('attendance.index') }}"
-        class="nav-link">
-
-        <i class="bi bi-calendar-check-fill"></i>
-
-        <span>Attendance</span>
-
-        </a>
-    </aside>
+    @include('layouts.sidebar')
     <div class="main">
       <header class="topbar">
         <div>

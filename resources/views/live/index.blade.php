@@ -5,7 +5,8 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
+<meta
+name="viewport"
 content="width=device-width, initial-scale=1.0">
 
 <title>NTC Live Attendance</title>
@@ -20,773 +21,18 @@ rel="stylesheet">
 href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
 rel="stylesheet">
 
-
-<style>
-
-:root{
-
---dark:#07111f;
-
---dark2:#0c192b;
-
---card:#101f34;
-
---border:#22344d;
-
---green:#20d6a2;
-
---red:#ef5350;
-
---blue:#3987ff;
-
-}
-
-
-*{
-
-box-sizing:border-box;
-
-}
-
-
-body{
-
-margin:0;
-
-height:100vh;
-
-overflow:hidden;
-
-font-family:"Segoe UI",Arial,sans-serif;
-
-color:white;
-
-background:
-
-radial-gradient(
-circle at top left,
-rgba(32,214,162,.10),
-transparent 35%
-),
-
-#07111f;
-
-}
-
-
-/* ================= HEADER ================= */
-
-
-.header{
-
-height:105px;
-
-padding:18px 40px;
-
-background:rgba(7,17,31,.95);
-
-border-bottom:1px solid var(--border);
-
-display:flex;
-
-align-items:center;
-
-}
-
-
-.logo-box{
-
-width:60px;
-
-height:60px;
-
-border-radius:15px;
-
-background:
-
-rgba(32,214,162,.12);
-
-border:
-
-1px solid rgba(32,214,162,.4);
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:34px;
-
-color:var(--green);
-
-}
-
-
-.system-title{
-
-font-size:31px;
-
-font-weight:800;
-
-letter-spacing:.5px;
-
-}
-
-
-.system-title span{
-
-color:var(--green);
-
-}
-
-
-.subtitle{
-
-color:#8191a8;
-
-font-size:14px;
-
-letter-spacing:2px;
-
-}
-
-
-.clock{
-
-font-size:35px;
-
-font-weight:700;
-
-font-family:monospace;
-
-}
-
-
-.date{
-
-color:#91a1b7;
-
-}
-
-
-.online{
-
-color:var(--green);
-
-font-weight:700;
-
-}
-
-
-.online-dot{
-
-width:10px;
-
-height:10px;
-
-display:inline-block;
-
-border-radius:50%;
-
-background:var(--green);
-
-box-shadow:
-
-0 0 15px var(--green);
-
-}
-
-
-/* ================= MAIN ================= */
-
-
-.main{
-
-height:
-
-calc(100vh - 105px);
-
-padding:25px 35px;
-
-}
-
-
-.main-row{
-
-height:100%;
-
-}
-
-
-.panel{
-
-height:100%;
-
-background:
-
-rgba(16,31,52,.94);
-
-border:
-
-1px solid var(--border);
-
-border-radius:25px;
-
-box-shadow:
-
-0 20px 60px
-
-rgba(0,0,0,.28);
-
-}
-
-
-/* ================= PROFILE ================= */
-
-
-.profile-panel{
-
-padding:25px;
-
-text-align:center;
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-
-.live-label{
-
-position:absolute;
-
-top:20px;
-
-right:20px;
-
-padding:
-
-7px 15px;
-
-border-radius:30px;
-
-font-size:13px;
-
-font-weight:700;
-
-color:var(--green);
-
-background:
-
-rgba(32,214,162,.12);
-
-border:
-
-1px solid
-
-rgba(32,214,162,.4);
-
-}
-
-
-.photo-wrapper{
-
-width:280px;
-
-height:280px;
-
-margin:
-
-25px auto 18px;
-
-position:relative;
-
-}
-
-
-.employee-photo{
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
-border-radius:50%;
-
-border:8px solid var(--card);
-
-box-shadow:
-
-0 0 0 5px var(--green),
-
-0 0 50px
-
-rgba(32,214,162,.20);
-
-}
-
-
-.scan-line{
-
-position:absolute;
-
-left:10px;
-
-right:10px;
-
-height:4px;
-
-background:
-
-var(--green);
-
-box-shadow:
-
-0 0 20px
-
-var(--green);
-
-animation:
-
-scan 3s infinite;
-
-}
-
-
-@keyframes scan{
-
-0%{
-
-top:15%;
-
-opacity:0;
-
-}
-
-15%{
-
-opacity:1;
-
-}
-
-85%{
-
-opacity:1;
-
-}
-
-100%{
-
-top:85%;
-
-opacity:0;
-
-}
-
-}
-
-
-.employee-name{
-
-font-size:39px;
-
-font-weight:800;
-
-line-height:1.1;
-
-margin-top:10px;
-
-}
-
-
-.employee-position{
-
-color:#91a1b7;
-
-font-size:17px;
-
-margin-top:8px;
-
-}
-
-
-.employee-info{
-
-margin-top:20px;
-
-}
-
-
-.info-box{
-
-padding:15px;
-
-border-radius:15px;
-
-background:#0b1829;
-
-border:
-
-1px solid var(--border);
-
-}
-
-
-.info-label{
-
-color:#71839c;
-
-font-size:12px;
-
-text-transform:uppercase;
-
-letter-spacing:1px;
-
-}
-
-
-.info-value{
-
-font-size:19px;
-
-font-weight:700;
-
-margin-top:4px;
-
-}
-
-
-.status-box{
-
-margin-top:20px;
-
-padding:18px;
-
-border-radius:17px;
-
-background:
-
-rgba(32,214,162,.13);
-
-border:
-
-1px solid
-
-rgba(32,214,162,.40);
-
-}
-
-
-.status-text{
-
-font-size:29px;
-
-font-weight:900;
-
-color:var(--green);
-
-}
-
-
-.attendance-time{
-
-font-size:30px;
-
-font-family:monospace;
-
-font-weight:800;
-
-margin-top:5px;
-
-}
-
-
-/* ================= RIGHT ================= */
-
-
-.attendance-panel{
-
-padding:25px;
-
-overflow:hidden;
-
-}
-
-
-.section-title{
-
-font-size:27px;
-
-font-weight:800;
-
-}
-
-
-.section-subtitle{
-
-color:#71839c;
-
-}
-
-
-.refresh-status{
-
-color:var(--green);
-
-font-size:13px;
-
-}
-
-
-.table-wrapper{
-
-margin-top:20px;
-
-height:
-
-calc(100% - 70px);
-
-overflow:auto;
-
-}
-
-
-.table{
-
-color:white;
-
-vertical-align:middle;
-
-}
-
-
-.table thead{
-
-position:sticky;
-
-top:0;
-
-z-index:5;
-
-}
-
-
-.table thead th{
-
-background:#091728;
-
-color:#71839c;
-
-border:none;
-
-padding:18px;
-
-font-size:13px;
-
-text-transform:uppercase;
-
-}
-
-
-.table tbody td{
-
-background:transparent;
-
-color:#e5edf8;
-
-border-color:
-
-rgba(34,52,77,.65);
-
-padding:17px;
-
-}
-
-
-.table tbody tr{
-
-transition:.25s;
-
-}
-
-
-.table tbody tr:hover{
-
-background:
-
-rgba(32,214,162,.05);
-
-}
-
-
-.avatar{
-
-width:53px;
-
-height:53px;
-
-border-radius:50%;
-
-object-fit:cover;
-
-border:
-
-2px solid var(--green);
-
-}
-
-
-.employee-table-name{
-
-font-size:17px;
-
-font-weight:700;
-
-}
-
-
-.employee-number{
-
-font-size:12px;
-
-color:#71839c;
-
-}
-
-
-.badge-in,
-
-.badge-out{
-
-padding:
-
-8px 15px;
-
-border-radius:30px;
-
-font-weight:800;
-
-font-size:12px;
-
-}
-
-
-.badge-in{
-
-color:var(--green);
-
-background:
-
-rgba(32,214,162,.12);
-
-border:
-
-1px solid
-
-rgba(32,214,162,.4);
-
-}
-
-
-.badge-out{
-
-color:#ff7774;
-
-background:
-
-rgba(239,83,80,.12);
-
-border:
-
-1px solid
-
-rgba(239,83,80,.4);
-
-}
-
-
-/* NEW SCAN ANIMATION */
-
-
-.new-scan{
-
-animation:
-
-newAttendance .7s;
-
-}
-
-
-@keyframes newAttendance{
-
-0%{
-
-transform:
-
-scale(.96);
-
-opacity:.3;
-
-box-shadow:
-
-0 0 80px
-
-var(--green);
-
-}
-
-100%{
-
-transform:
-
-scale(1);
-
-opacity:1;
-
-}
-
-}
-
-
-/* RESPONSIVE */
-
-
-@media(max-width:1200px){
-
-body{
-
-overflow:auto;
-
-}
-
-.main{
-
-height:auto;
-
-}
-
-.panel{
-
-min-height:700px;
-
-}
-
-}
-
-
-</style>
-
+<link href="{{ asset('css/live.css') }}" rel="stylesheet">
+ 
+ 
 </head>
 
 
 <body>
 
 
-<!-- ================= HEADER ================= -->
-
+<!-- ==================================================
+HEADER
+================================================== -->
 
 <header class="header">
 
@@ -797,7 +43,7 @@ min-height:700px;
 <div class="row align-items-center">
 
 
-<div class="col-7">
+<div class="col-md-7 col-7">
 
 
 <div class="d-flex align-items-center gap-3">
@@ -805,73 +51,136 @@ min-height:700px;
 
 <div class="logo-box">
 
+
 <i class="bi bi-fingerprint"></i>
+
 
 </div>
 
 
 <div>
 
+<div>
 
-<div class="system-title">
+    <div class="agency-name">
 
-NTC
+        NATIONAL TELECOMMUNICATIONS COMMISSION
 
-<span>
+    </div>
 
-ATTENDANCE
+    <div class="system-name">
 
-</span>
+        <span>ATTENDANCE</span>
 
-SYSTEM
+        SYSTEM
+
+    </div>
+
+    <div class="subtitle">
+
+        BIOMETRIC LIVE MONITORING
+
+    </div>
+
+</div>
+ 
+
 
 </div>
 
 
-<div class="subtitle">
-
-BIOMETRIC LIVE MONITORING
-
 </div>
 
 
 </div>
 
 
-</div>
+
+<div class="col-md-5 col-5">
 
 
-</div>
+<div
+
+class="d-flex
+
+align-items-center
+
+justify-content-end">
 
 
-<div class="col-5 text-end">
+<button
+
+type="button"
+
+class="theme-toggle"
+
+id="themeToggle"
+
+onclick="toggleTheme()"
+
+title="Switch light or dark theme">
 
 
-<div class="clock"
+<i
+
+class="bi bi-sun-fill"
+
+id="themeIcon">
+
+
+</i>
+
+
+</button>
+
+
+
+<div class="text-end">
+
+
+<div
+
+class="clock"
 
 id="clock">
 
+
 --:--:--
+
 
 </div>
 
 
-<div class="date"
+<div
+
+class="date"
 
 id="date">
 
+
 Loading...
+
 
 </div>
 
 
 <div class="online mt-1">
 
+
 <span class="online-dot">
+
 
 </span>
 
+
 LIVE MONITORING
+
+
+</div>
+
+
+</div>
+
 
 </div>
 
@@ -889,8 +198,9 @@ LIVE MONITORING
 
 
 
-<!-- ================= CONTENT ================= -->
-
+<!-- ==================================================
+MAIN
+================================================== -->
 
 <main class="main">
 
@@ -898,8 +208,9 @@ LIVE MONITORING
 <div class="row g-4 main-row">
 
 
-<!-- ================= PROFILE ================= -->
-
+<!-- ==================================================
+EMPLOYEE PROFILE
+================================================== -->
 
 <div class="col-xl-5">
 
@@ -912,14 +223,17 @@ id="profilePanel">
 
 
 <div class="live-label">
-
+ 
 <i class="bi bi-broadcast">
-
+ 
 </i>
+
 
 LIVE
 
+
 </div>
+
 
 
 <div class="photo-wrapper">
@@ -931,15 +245,19 @@ id="employee_photo"
 
 src="{{ asset('img/default.jpeg') }}"
 
-class="employee-photo">
+class="employee-photo"
+
+alt="Employee Photo">
 
 
 <div class="scan-line">
 
+
 </div>
 
 
 </div>
+
 
 
 <div
@@ -949,18 +267,37 @@ class="employee-name"
 id="employee_name">
 
 
-@if($attendance)
+@if(
 
-{{ $attendance->employee->name }}
+$attendance
+
+)
+
+
+{{
+
+optional(
+
+$attendance->employee
+
+)->name
+
+?? 'UNKNOWN EMPLOYEE'
+
+}}
+
 
 @else
 
+
 WAITING FOR SCAN
+
 
 @endif
 
 
 </div>
+
 
 
 <div
@@ -971,16 +308,38 @@ id="employee_position">
 
 
 @if(
-$attendance &&
+
+$attendance
+
+&&
+
+$attendance->employee
+
+&&
+
 $attendance->employee->position
+
 )
 
-{{ $attendance->employee
-->position->position_name }}
+
+{{
+
+$attendance
+
+->employee
+
+->position
+
+->position_name
+
+}}
+
 
 @else
 
+
 Place your finger on the biometric device
+
 
 @endif
 
@@ -998,9 +357,23 @@ Place your finger on the biometric device
 <div class="info-box">
 
 
+<div class="info-icon">
+
+
+<i class="bi bi-person-vcard">
+
+
+</i>
+
+
+</div>
+
+
 <div class="info-label">
 
+
 Employee Number
+
 
 </div>
 
@@ -1012,18 +385,37 @@ class="info-value"
 id="employee_no">
 
 
-@if($attendance)
+@if(
+
+$attendance
+
+&&
+
+$attendance->employee
+
+)
+
 
 {{
 
-$attendance->employee
-->employee_no ?? '------'
+$attendance
+
+->employee
+
+->employee_no
+
+??
+
+'------'
 
 }}
 
+
 @else
 
+
 ------
+
 
 @endif
 
@@ -1037,15 +429,30 @@ $attendance->employee
 </div>
 
 
+
 <div class="col-6">
 
 
 <div class="info-box">
 
 
+<div class="info-icon">
+
+
+<i class="bi bi-building">
+
+
+</i>
+
+
+</div>
+
+
 <div class="info-label">
 
+
 Department
+
 
 </div>
 
@@ -1057,24 +464,43 @@ class="info-value"
 id="department">
 
 
-@if($attendance)
+@if(
+
+$attendance
+
+&&
+
+$attendance->employee
+
+)
+
 
 {{
 
 optional(
 
-$attendance->employee
+$attendance
+
+->employee
+
 ->department
 
-)->department_name
+)
 
-?? '------'
+->department_name
+
+??
+
+'------'
 
 }}
 
+
 @else
 
+
 ------
+
 
 @endif
 
@@ -1106,14 +532,25 @@ class="status-text"
 id="status">
 
 
-@if($attendance)
+@if(
+
+$attendance
+
+)
 
 
-@if($attendance->time_out)
+@if(
+
+$attendance->time_out
+
+)
+
 
 <i class="bi bi-box-arrow-right">
 
+
 </i>
+
 
 TIME OUT RECORDED
 
@@ -1123,7 +560,9 @@ TIME OUT RECORDED
 
 <i class="bi bi-check-circle-fill">
 
+
 </i>
+
 
 TIME IN RECORDED
 
@@ -1136,7 +575,9 @@ TIME IN RECORDED
 
 <i class="bi bi-fingerprint">
 
+
 </i>
+
 
 READY TO SCAN
 
@@ -1147,6 +588,7 @@ READY TO SCAN
 </div>
 
 
+
 <div
 
 class="attendance-time"
@@ -1154,35 +596,69 @@ class="attendance-time"
 id="attendance_time">
 
 
-@if($attendance)
+@if(
+
+$attendance
+
+)
 
 
-@if($attendance->time_out)
-
-
-{{
-
-\Carbon\Carbon::parse(
+@if(
 
 $attendance->time_out
 
-)->format('h:i:s A')
-
-}}
-
-
-@else
+)
 
 
 {{
 
-\Carbon\Carbon::parse(
+\Carbon\Carbon
+
+::parse(
+
+$attendance->time_out
+
+)
+
+->format(
+
+'h:i:s A'
+
+)
+
+}}
+
+
+@elseif(
 
 $attendance->time_in
 
-)->format('h:i:s A')
+)
+
+
+{{
+
+\Carbon\Carbon
+
+::parse(
+
+$attendance->time_in
+
+)
+
+->format(
+
+'h:i:s A'
+
+)
 
 }}
+
+
+@else
+
+
+--:--:--
 
 
 @endif
@@ -1190,7 +666,9 @@ $attendance->time_in
 
 @else
 
+
 --:--:--
+
 
 @endif
 
@@ -1208,8 +686,9 @@ $attendance->time_in
 
 
 
-<!-- ================= TABLE ================= -->
-
+<!-- ==================================================
+RECENT ATTENDANCE
+================================================== -->
 
 <div class="col-xl-7">
 
@@ -1232,13 +711,7 @@ align-items-center">
 <div class="section-title">
 
 
-<i
-
-class="bi
-
-bi-clock-history
-
-text-success">
+<i class="bi bi-clock-history">
 
 
 </i>
@@ -1252,24 +725,21 @@ Recent Attendance
 
 <div class="section-subtitle">
 
+
 Latest biometric transactions
 
-</div>
-
 
 </div>
 
 
-<div
-
-class="refresh-status">
+</div>
 
 
-<i
 
-class="bi
+<div class="refresh-status">
 
-bi-arrow-repeat">
+
+<i class="bi bi-arrow-repeat">
 
 
 </i>
@@ -1299,28 +769,36 @@ Auto Updating
 
 <th>
 
+
 Employee
+
 
 </th>
 
 
 <th>
+
 
 Department
 
+
 </th>
 
 
 <th>
+
 
 Time
 
+
 </th>
 
 
 <th>
 
+
 Status
+
 
 </th>
 
@@ -1343,7 +821,7 @@ id="recentAttendance">
 
 colspan="4"
 
-class="text-center">
+class="text-center py-5">
 
 
 Waiting for attendance...
@@ -1379,9 +857,9 @@ Waiting for attendance...
 
 <script>
 
-
-/* ================= CLOCK ================= */
-
+/* ==================================================
+CLOCK
+================================================== */
 
 function updateClock(){
 
@@ -1393,7 +871,11 @@ new Date();
 
 document
 
-.getElementById("clock")
+.getElementById(
+
+"clock"
+
+)
 
 .innerHTML=
 
@@ -1402,7 +884,11 @@ now.toLocaleTimeString();
 
 document
 
-.getElementById("date")
+.getElementById(
+
+"date"
+
+)
 
 .innerHTML=
 
@@ -1412,13 +898,21 @@ now.toLocaleDateString(
 
 {
 
-weekday:'long',
+weekday:
 
-month:'long',
+'long',
 
-day:'numeric',
+month:
 
-year:'numeric'
+'long',
+
+day:
+
+'numeric',
+
+year:
+
+'numeric'
 
 }
 
@@ -1441,8 +935,191 @@ updateClock,
 
 
 
-/* ================= LIVE DATA ================= */
+/* ==================================================
+LIGHT AND DARK THEME
+================================================== */
 
+function applyTheme(
+
+theme
+
+){
+
+
+let body=
+
+document.body;
+
+
+let icon=
+
+document
+
+.getElementById(
+
+"themeIcon"
+
+);
+
+
+if(
+
+theme ===
+
+"light"
+
+){
+
+
+body
+
+.classList
+
+.add(
+
+"light-theme"
+
+);
+
+
+icon.className=
+
+"bi bi-moon-stars-fill";
+
+
+}
+
+
+else{
+
+
+body
+
+.classList
+
+.remove(
+
+"light-theme"
+
+);
+
+
+icon.className=
+
+"bi bi-sun-fill";
+
+
+}
+
+
+}
+
+
+
+function toggleTheme(){
+
+
+let currentTheme=
+
+
+document
+
+.body
+
+.classList
+
+.contains(
+
+"light-theme"
+
+)
+
+
+?
+
+
+"light"
+
+
+:
+
+
+"dark";
+
+
+let newTheme=
+
+
+currentTheme
+
+===
+
+"dark"
+
+
+?
+
+
+"light"
+
+
+:
+
+
+"dark";
+
+
+localStorage
+
+.setItem(
+
+"ntc-theme",
+
+newTheme
+
+);
+
+
+applyTheme(
+
+newTheme
+
+);
+
+
+}
+
+
+
+let savedTheme=
+
+
+localStorage
+
+.getItem(
+
+"ntc-theme"
+
+)
+
+
+||
+
+
+"dark";
+
+
+applyTheme(
+
+savedTheme
+
+);
+
+
+
+/* ==================================================
+LIVE ATTENDANCE
+================================================== */
 
 let previousUpdate=null;
 
@@ -1458,24 +1135,35 @@ dateTime
 ){
 
 
-if(!dateTime){
+if(
 
-return "--";
+!dateTime
+
+){
+
+
+return "--:--:--";
+
 
 }
 
 
 let date=
 
+
 new Date(
 
-dateTime.replace(
+
+dateTime
+
+.replace(
 
 " ",
 
 "T"
 
 )
+
 
 );
 
@@ -1512,9 +1200,15 @@ second:
 function loadAttendance(){
 
 
-if(loading){
+if(
+
+loading
+
+){
+
 
 return;
+
 
 }
 
@@ -1524,13 +1218,13 @@ loading=true;
 
 /*
 
-TESTING:
+TEMPORARY BIOMETRIC SYNC
 
-Sync biometric first.
+Kapag may Laravel Scheduler
 
-Kapag background sync na,
+na tayo, aalisin natin
 
-aalisin natin ito.
+ang /sync-attendance dito.
 
 */
 
@@ -1544,11 +1238,30 @@ fetch(
 
 .then(
 
-response=>
+response=>{
 
-response.text()
 
-)
+if(
+
+!response.ok
+
+){
+
+
+throw new Error(
+
+"Biometric sync failed"
+
+);
+
+
+}
+
+
+return response.text();
+
+
+})
 
 
 .then(()=>{
@@ -1578,7 +1291,7 @@ if(
 
 throw new Error(
 
-"Cannot load attendance"
+"Cannot load live attendance"
 
 );
 
@@ -1592,7 +1305,9 @@ return response.json();
 })
 
 
-.then(data=>{
+.then(
+
+data=>{
 
 
 let attendance=
@@ -1600,9 +1315,19 @@ let attendance=
 data.attendance;
 
 
-if(!attendance){
+if(
+
+!attendance
+
+||
+
+!attendance.employee
+
+){
+
 
 return;
+
 
 }
 
@@ -1612,7 +1337,10 @@ let employee=
 attendance.employee;
 
 
-/* PROFILE */
+
+/* ==================================================
+EMPLOYEE INFORMATION
+================================================== */
 
 
 document
@@ -1623,9 +1351,14 @@ document
 
 )
 
-.innerHTML=
+.textContent=
 
-employee.name;
+employee.name
+
+||
+
+"UNKNOWN EMPLOYEE";
+
 
 
 document
@@ -1636,13 +1369,14 @@ document
 
 )
 
-.innerHTML=
+.textContent=
 
 employee.employee_no
 
-??
+||
 
 "------";
+
 
 
 document
@@ -1653,19 +1387,27 @@ document
 
 )
 
-.innerHTML=
+.textContent=
+
 
 employee.department
+
 
 ?
 
-employee.department
+
+employee
+
+.department
 
 .department_name
 
+
 :
 
+
 "------";
+
 
 
 document
@@ -1676,32 +1418,91 @@ document
 
 )
 
-.innerHTML=
+.textContent=
+
 
 employee.position
+
 
 ?
 
-employee.position
+
+employee
+
+.position
 
 .position_name
 
+
 :
+
 
 "Employee";
 
 
-let attendanceDate=
 
-attendance.time_out
+/* ==================================================
+EMPLOYEE PHOTO
+================================================== */
+
+
+let employeePhoto=
+
+
+document
+
+.getElementById(
+
+"employee_photo"
+
+);
+
+
+employeePhoto.src=
+
+
+employee.photo
+
 
 ?
 
-attendance.time_out
+
+"/storage/"
+
++
+
+employee.photo
+
 
 :
 
+
+"/img/default.jpeg";
+
+
+
+/* ==================================================
+ATTENDANCE TIME
+================================================== */
+
+
+let attendanceDate=
+
+
+attendance.time_out
+
+
+?
+
+
+attendance.time_out
+
+
+:
+
+
 attendance.time_in;
+
 
 
 document
@@ -1712,7 +1513,8 @@ document
 
 )
 
-.innerHTML=
+.textContent=
+
 
 formatTime(
 
@@ -1721,7 +1523,14 @@ attendanceDate
 );
 
 
+
+/* ==================================================
+TIME IN OR TIME OUT
+================================================== */
+
+
 let status=
+
 
 document
 
@@ -1734,6 +1543,7 @@ document
 
 let statusBox=
 
+
 document
 
 .getElementById(
@@ -1741,6 +1551,7 @@ document
 "statusBox"
 
 );
+
 
 
 if(
@@ -1752,26 +1563,34 @@ attendance.time_out
 
 status.innerHTML=
 
+
 '<i class="bi bi-box-arrow-right"></i> TIME OUT RECORDED';
-
-
-statusBox.style
-
-.background=
-
-"rgba(239,83,80,.13)";
-
-
-statusBox.style
-
-.borderColor=
-
-"rgba(239,83,80,.50)";
 
 
 status.style.color=
 
-"#ff7774";
+
+"#ff6764";
+
+
+statusBox
+
+.style
+
+.background=
+
+
+"rgba(255,103,100,.11)";
+
+
+statusBox
+
+.style
+
+.borderColor=
+
+
+"rgba(255,103,100,.50)";
 
 
 }
@@ -1782,32 +1601,43 @@ else{
 
 status.innerHTML=
 
+
 '<i class="bi bi-check-circle-fill"></i> TIME IN RECORDED';
-
-
-statusBox.style
-
-.background=
-
-"rgba(32,214,162,.13)";
-
-
-statusBox.style
-
-.borderColor=
-
-"rgba(32,214,162,.50)";
 
 
 status.style.color=
 
+
 "#20d6a2";
+
+
+statusBox
+
+.style
+
+.background=
+
+
+"rgba(32,214,162,.11)";
+
+
+statusBox
+
+.style
+
+.borderColor=
+
+
+"rgba(32,214,162,.45)";
 
 
 }
 
 
-/* ANIMATION */
+
+/* ==================================================
+NEW SCAN ANIMATION
+================================================== */
 
 
 if(
@@ -1823,6 +1653,7 @@ attendance.updated_at
 
 let panel=
 
+
 document
 
 .getElementById(
@@ -1832,7 +1663,9 @@ document
 );
 
 
-panel.classList
+panel
+
+.classList
 
 .remove(
 
@@ -1841,12 +1674,16 @@ panel.classList
 );
 
 
-void panel
+void
+
+panel
 
 .offsetWidth;
 
 
-panel.classList
+panel
+
+.classList
 
 .add(
 
@@ -1857,6 +1694,7 @@ panel.classList
 
 previousUpdate=
 
+
 attendance.updated_at;
 
 
@@ -1864,17 +1702,38 @@ attendance.updated_at;
 
 
 
-/* TABLE */
+/* ==================================================
+RECENT ATTENDANCE TABLE
+================================================== */
 
 
 let html="";
+
+
+if(
+
+data.recent
+
+&&
+
+Array.isArray(
+
+data.recent
+
+)
+
+){
 
 
 data.recent
 
 .forEach(
 
-function(row){
+function(
+
+row
+
+){
 
 
 if(
@@ -1883,27 +1742,79 @@ if(
 
 ){
 
+
 return;
+
 
 }
 
 
 let rowEmployee=
 
+
 row.employee;
 
 
 let rowTime=
 
+
 row.time_out
+
 
 ?
 
+
 row.time_out
+
 
 :
 
+
 row.time_in;
+
+
+let photo=
+
+
+rowEmployee.photo
+
+
+?
+
+
+"/storage/"
+
++
+
+rowEmployee.photo
+
+
+:
+
+
+"/img/default.jpeg";
+
+
+let department=
+
+
+rowEmployee.department
+
+
+?
+
+
+rowEmployee
+
+.department
+
+.department_name
+
+
+:
+
+
+"-";
 
 
 html+=`
@@ -1926,9 +1837,11 @@ gap-3">
 
 <img
 
-src="/img/default.jpeg"
+src="${photo}"
 
-class="avatar">
+class="avatar"
+
+alt="Employee">
 
 
 <div>
@@ -1980,21 +1893,19 @@ rowEmployee.employee_no
 <td>
 
 
+<span
+
+class="department-text">
+
+
 ${
 
-rowEmployee.department
-
-?
-
-rowEmployee.department
-
-.department_name
-
-:
-
-"-"
+department
 
 }
+
+
+</span>
 
 
 </td>
@@ -2035,13 +1946,13 @@ row.time_out
 ?
 
 
-'<span class="badge-out">TIME OUT</span>'
+'<span class="badge-out"><i class="bi bi-box-arrow-right"></i> TIME OUT</span>'
 
 
 :
 
 
-'<span class="badge-in">TIME IN</span>'
+'<span class="badge-in"><i class="bi bi-check-circle-fill"></i> TIME IN</span>'
 
 
 }
@@ -2056,7 +1967,12 @@ row.time_out
 `;
 
 
-});
+}
+
+);
+
+
+}
 
 
 document
@@ -2069,9 +1985,12 @@ document
 
 .innerHTML=
 
+
 html
 
+
 ||
+
 
 `
 
@@ -2083,10 +2002,24 @@ html
 
 colspan="4"
 
-class="text-center">
+class="text-center py-5">
+
+
+<i
+
+class="bi bi-clock-history fs-2">
+
+
+</i>
+
+
+<div class="mt-2">
 
 
 No attendance records
+
+
+</div>
 
 
 </td>
@@ -2131,18 +2064,12 @@ loading=false;
 
 
 
-/* LOAD IMMEDIATELY */
+/* ==================================================
+START LIVE MONITORING
+================================================== */
 
 
 loadAttendance();
-
-
-
-/*
-
-CHECK EVERY 3 SECONDS
-
-*/
 
 
 setInterval(

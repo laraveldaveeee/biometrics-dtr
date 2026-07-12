@@ -16,6 +16,7 @@ class Employee extends Model
         'employee_no',
         'department_id',
         'position_id',
+        'work_schedule_id',
         'photo',
         'contact_no',
         'address',
@@ -25,6 +26,11 @@ class Employee extends Model
     public function position()
     {
         return $this->belongsTo(Position::class);
+    }
+
+    public function workSchedule()
+    {
+        return $this->belongsTo(WorkSchedule::class, 'work_schedule_id');
     }
 
     public function department()
