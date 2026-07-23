@@ -1916,61 +1916,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LiveAttendanceComponent.vue?vue&type=script&lang=js":
-/*!*********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/LiveAttendanceComponent.vue?vue&type=script&lang=js ***!
-  \*********************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      clock: "",
-      employee: {
-        name: "WAITING EMPLOYEE",
-        id: "------",
-        department: "------",
-        time: "--",
-        status: "READY TO SCAN",
-        statusClass: "ready",
-        photo: "/images/default.png"
-      },
-      logs: []
-    };
-  },
-  mounted: function mounted() {
-    var _this = this;
-    setInterval(function () {
-      _this.clock = new Date().toLocaleTimeString();
-    }, 1000);
-  },
-  methods: {
-    simulateScan: function simulateScan() {
-      var now = new Date().toLocaleTimeString();
-      this.employee = {
-        name: "Dave Del Rosario",
-        id: "EMP-001",
-        department: "Information Technology",
-        time: now,
-        status: "TIME IN SUCCESS",
-        statusClass: "success",
-        photo: "/images/dave.png"
-      };
-      this.logs.unshift({
-        name: "Dave Del Rosario",
-        department: "Information Technology",
-        time: now,
-        status: "IN"
-      });
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e":
 /*!************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e ***!
@@ -2023,70 +1968,114 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "kiosk"
-  }, [_c("div", {
+  return _c("div", [_c("div", {
     staticClass: "header"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "clock"
-  }, [_vm._v("\r\n\r\n" + _vm._s(_vm.clock) + "\r\n\r\n"), _c("br"), _vm._v(" "), _vm._m(1)])]), _vm._v(" "), _c("div", {
-    staticClass: "content"
   }, [_c("div", {
-    staticClass: "employee-card"
+    staticClass: "container-fluid"
+  }, [_c("div", {
+    staticClass: "row align-items-center"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4 text-end"
+  }, [_c("div", {
+    staticClass: "clock"
+  }, [_vm._v("\r\n\r\n\r\n" + _vm._s(_vm.clock) + "\r\n\r\n\r\n")]), _vm._v(" "), _vm._m(1)])])])]), _vm._v(" "), _c("div", {
+    staticClass: "main"
+  }, [_c("div", {
+    staticClass: "row g-4"
+  }, [_c("div", {
+    staticClass: "col-lg-5"
+  }, [_c("div", {
+    staticClass: "card-box profile-area"
   }, [_c("img", {
+    staticClass: "photo",
     attrs: {
       src: _vm.employee.photo
     }
-  }), _vm._v(" "), _c("h1", [_vm._v("\r\n\r\n" + _vm._s(_vm.employee.name) + "\r\n\r\n")]), _vm._v(" "), _c("div", {
-    staticClass: "details"
-  }, [_c("div", [_c("i", {
+  }), _vm._v(" "), _c("div", {
+    staticClass: "employee-name"
+  }, [_vm._v("\r\n\r\n\r\n" + _vm._s(_vm.employee.name) + "\r\n\r\n\r\n")]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-6"
+  }, [_c("div", {
+    staticClass: "info"
+  }, [_c("i", {
     staticClass: "bi bi-person-badge"
-  }), _vm._v("\r\n\r\nEmployee No\r\n\r\n"), _c("b", [_vm._v("\r\n" + _vm._s(_vm.employee.id) + "\r\n")])]), _vm._v(" "), _c("div", [_c("i", {
+  }), _vm._v(" "), _c("br"), _vm._v("\r\n\r\n\r\nEmployee No\r\n\r\n\r\n"), _c("br"), _vm._v(" "), _c("span", [_vm._v("\r\n\r\n\r\n" + _vm._s(_vm.employee.employee_no) + "\r\n\r\n\r\n")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("div", {
+    staticClass: "info"
+  }, [_c("i", {
     staticClass: "bi bi-building"
-  }), _vm._v("\r\n\r\nDepartment\r\n\r\n"), _c("b", [_vm._v("\r\n" + _vm._s(_vm.employee.department) + "\r\n")])])]), _vm._v(" "), _c("div", {
-    staticClass: "status",
-    "class": _vm.employee.statusClass
+  }), _vm._v(" "), _c("br"), _vm._v("\r\n\r\n\r\n\r\nDepartment\r\n\r\n\r\n"), _c("br"), _vm._v(" "), _c("span", [_vm._v("\r\n\r\n\r\n" + _vm._s(_vm.employee.department) + "\r\n\r\n\r\n")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "status-card"
   }, [_c("i", {
     staticClass: "bi bi-check-circle-fill"
-  }), _vm._v("\r\n\r\n" + _vm._s(_vm.employee.status) + "\r\n\r\n\r\n")]), _vm._v(" "), _c("h2", [_c("i", {
-    staticClass: "bi bi-clock"
-  }), _vm._v("\r\n\r\n" + _vm._s(_vm.employee.time) + "\r\n\r\n")]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-warning btn-lg",
+  }), _vm._v("\r\n\r\n\r\n\r\n" + _vm._s(_vm.employee.status) + "\r\n\r\n\r\n\r\n")]), _vm._v(" "), _c("h3", {
+    staticClass: "mt-4"
+  }, [_c("i", {
+    staticClass: "bi bi-clock-history"
+  }), _vm._v("\r\n\r\n\r\n" + _vm._s(_vm.employee.time) + "\r\n\r\n\r\n\r\n")]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-warning btn-lg mt-3",
     on: {
-      click: _vm.simulateScan
+      click: _vm.testTimeIn
     }
   }, [_c("i", {
     staticClass: "bi bi-fingerprint"
-  }), _vm._v("\r\n\r\nTEST FINGERPRINT\r\n\r\n")])]), _vm._v(" "), _c("div", {
-    staticClass: "history"
-  }, [_vm._m(2), _vm._v(" "), _c("table", [_vm._m(3), _vm._v(" "), _c("tbody", _vm._l(_vm.logs, function (log) {
-    return _c("tr", [_c("td", [_vm._v(_vm._s(log.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(log.department))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(log.time))]), _vm._v(" "), _c("td", [_c("span", {
-      staticClass: "in"
-    }, [_vm._v("\r\n\r\n" + _vm._s(log.status) + "\r\n\r\n")])])]);
-  }), 0)])])])]);
+  }), _vm._v("\r\n\r\n\r\nTEST FINGERPRINT\r\n\r\n\r\n")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-7"
+  }, [_c("div", {
+    staticClass: "card-box"
+  }, [_vm._m(2), _vm._v(" "), _c("table", {
+    staticClass: "table table-hover align-middle"
+  }, [_vm._m(3), _vm._v(" "), _c("tbody", [_vm.attendance.length == 0 ? _c("tr", [_c("td", {
+    staticClass: "text-center",
+    attrs: {
+      colspan: "5"
+    }
+  }, [_vm._v("\r\n\r\n\r\nNo Attendance Record\r\n\r\n\r\n")])]) : _vm._e(), _vm._v(" "), _vm._l(_vm.attendance, function (item) {
+    return _c("tr", {
+      key: item.time
+    }, [_c("td", [_c("img", {
+      staticClass: "avatar",
+      attrs: {
+        src: item.photo
+      }
+    })]), _vm._v(" "), _c("td", [_vm._v("\r\n\r\n\r\n" + _vm._s(item.name) + "\r\n\r\n\r\n")]), _vm._v(" "), _c("td", [_vm._v("\r\n\r\n\r\n" + _vm._s(item.department) + "\r\n\r\n\r\n")]), _vm._v(" "), _c("td", [_vm._v("\r\n\r\n\r\n" + _vm._s(item.time) + "\r\n\r\n\r\n")]), _vm._v(" "), _c("td", [_c("span", {
+      staticClass: "badge-in"
+    }, [_vm._v("\r\n\r\n\r\n" + _vm._s(item.status) + "\r\n\r\n\r\n")])])]);
+  })], 2)])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("h1", [_c("i", {
+  return _c("div", {
+    staticClass: "col-md-8"
+  }, [_c("div", {
+    staticClass: "logo-title"
+  }, [_c("i", {
     staticClass: "bi bi-fingerprint"
-  }), _vm._v("\r\n\r\nNTC ATTENDANCE SYSTEM\r\n\r\n")]), _vm._v(" "), _c("p", [_vm._v("\r\nBIOMETRIC LIVE MONITORING\r\n")])]);
+  }), _vm._v("\r\n\r\n\r\nNTC ATTENDANCE MANAGEMENT SYSTEM\r\n\r\n\r\n")]), _vm._v(" "), _c("div", {
+    staticClass: "sub-title"
+  }, [_vm._v("\r\n\r\n\r\nBIOMETRIC LIVE MONITORING SYSTEM\r\n\r\n\r\n")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("span", [_c("i", {
+  return _c("div", [_c("i", {
     staticClass: "bi bi-wifi text-success"
-  }), _vm._v("\r\nDEVICE ONLINE\r\n")]);
+  }), _vm._v("\r\n\r\n\r\nDEVICE ONLINE\r\n\r\n\r\n")]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("h2", [_c("i", {
+  return _c("div", {
+    staticClass: "section-title"
+  }, [_c("i", {
     staticClass: "bi bi-list-check"
-  }), _vm._v("\r\n\r\nRECENT ATTENDANCE\r\n\r\n")]);
+  }), _vm._v("\r\n\r\n\r\nRecent Attendance\r\n\r\n\r\n\r\n")]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("thead", [_c("tr", [_c("th", [_vm._v("Name")]), _vm._v(" "), _c("th", [_vm._v("Department")]), _vm._v(" "), _c("th", [_vm._v("Time")]), _vm._v(" "), _c("th", [_vm._v("Status")])])]);
+  return _c("thead", [_c("tr", [_c("th", [_vm._v("Photo")]), _vm._v(" "), _c("th", [_vm._v("Name")]), _vm._v(" "), _c("th", [_vm._v("Department")]), _vm._v(" "), _c("th", [_vm._v("Time")]), _vm._v(" "), _c("th", [_vm._v("Status")])])]);
 }];
 render._withStripped = true;
 
@@ -31963,17 +31952,15 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LiveAttendanceComponent_vue_vue_type_template_id_255532ed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LiveAttendanceComponent.vue?vue&type=template&id=255532ed */ "./resources/js/components/LiveAttendanceComponent.vue?vue&type=template&id=255532ed");
-/* harmony import */ var _LiveAttendanceComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LiveAttendanceComponent.vue?vue&type=script&lang=js */ "./resources/js/components/LiveAttendanceComponent.vue?vue&type=script&lang=js");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-
-
+var script = {}
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _LiveAttendanceComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
   _LiveAttendanceComponent_vue_vue_type_template_id_255532ed__WEBPACK_IMPORTED_MODULE_0__["render"],
   _LiveAttendanceComponent_vue_vue_type_template_id_255532ed__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -31987,20 +31974,6 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/components/LiveAttendanceComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/LiveAttendanceComponent.vue?vue&type=script&lang=js":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/LiveAttendanceComponent.vue?vue&type=script&lang=js ***!
-  \*************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LiveAttendanceComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./LiveAttendanceComponent.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LiveAttendanceComponent.vue?vue&type=script&lang=js");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LiveAttendanceComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
