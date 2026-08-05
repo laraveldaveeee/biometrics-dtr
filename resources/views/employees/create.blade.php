@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Employee | NTC DTR</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('css/employee.css') }}" rel="stylesheet">
  
 </head>
@@ -21,7 +21,7 @@
                 <div class="page-title"> Add Employee </div>
                 <div class="page-subtitle"> Register employee information </div>
             </div>
-            <div class="fw-bold"> Administrator </div>
+            @include ('layouts.logout')
         </header>
         <div class="content">
             <div class="form-card">
@@ -191,6 +191,7 @@ btn-cancel"> Cancel </a>
             }
           });
     </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -8,15 +8,7 @@
           <div class="page-title"> Dashboard </div>
           <div class="page-subtitle"> Attendance overview and employee monitoring </div>
         </div>
-        <div class="d-flex align-items-center gap-3">
-          <div class="text-end">
-            <div class="fw-bold"> Administrator </div>
-            <div class="small text-secondary"> System Admin </div>
-          </div>
-          <div class="admin-avatar">
-            <i class="bi bi-person-fill"></i>
-          </div>
-        </div>
+    @include ('layouts.logout')
       </header>
       <div class="content">
         <!-- STATISTICS -->
@@ -105,14 +97,15 @@ icon-red">
         <!-- CONTENT -->
         <div class="row g-4 mt-1">
           <div class="col-xl-4">
-            <div class="
-dashboard-card
-summary-box">
+            <div class="dashboard-card summary-box">
               <div class="card-title"> Today's Attendance </div>
-              <div class="
-card-description
-mb-4"> Employee attendance summary </div>
-              <div class="summary-circle">
+              <div class="card-description mb-4"> Employee attendance summary </div>
+              <div class="summary-circle" style="
+                background:
+                conic-gradient(
+                    #1769e8 0 {{ $attendancePercent }}%,
+                    #e9eef5 {{ $attendancePercent }}% 100%
+                );">
                 <div class="summary-value">
                   {{ $presentToday }}
                 </div>
@@ -126,18 +119,12 @@ mb-4"> Employee attendance summary </div>
           </div>
           <div class="col-xl-8">
             <div class="dashboard-card">
-              <div class="
-d-flex
-justify-content-between
-align-items-center
-mb-3">
+              <div class="d-flex justify-content-between align-items-center mb-3">
                 <div>
                   <div class="card-title"> Recent Attendance </div>
                   <div class="card-description"> Latest employee attendance records </div>
                 </div>
-                <a href="{{ url('/live') }}" target="_blank" class="
-btn
-btn-primary">
+                <a href="{{ url('/live') }}" target="_blank" class="btn btn-primary">
                   <i class="bi bi-display"></i> Open Live Monitor </a>
               </div>
               <div class="table-responsive">
@@ -151,69 +138,45 @@ btn-primary">
                       <th>Status</th>
                     </tr>
                   </thead>
-                  <tbody> @forelse( $recentAttendances as $attendance ) <tr>
+                  <tbody> @forelse( $recentAttendances as $attendance ) 
+                    <tr>
                       <td>
-                        <div class="
-d-flex
-align-items-center
-gap-3">
+                        <div class="d-flex align-items-center gap-3">
                           <img src="{{ asset('img/default.jpeg') }}" class="employee-avatar">
                           <div>
                             <div class="employee-name">
-                              {{ optional(
-$attendance->employee
-)->name
-
-?? 'Unknown Employee'
-
-}}
+                              {{ optional($attendance->employee)->name ?? 'Unknown Employee' }}
                             </div>
                             <div class="employee-number">
-                              {{ optional(
-$attendance->employee
-)->employee_no
-
-?? 'No Employee Number'
-
-}}
+                              {{ optional($attendance->employee)->employee_no ?? 'No Employee Number' }}
                             </div>
                           </div>
                         </div>
                       </td>
                       <td>
-                        {{ optional(
-optional(
-$attendance->employee
-)->department
-)->department_name
-
-?? '-'
-
-}}
+                        {{ optional(optional($attendance->employee)->department)->department_name ?? '-' }}
                       </td>
-                      <td> @if($attendance->time_in) {{ \Carbon\Carbon::parse(
-$attendance->time_in
-)->format('h:i A')
-
-}} @else - @endif </td>
-                      <td> @if($attendance->time_out) {{ \Carbon\Carbon::parse(
-$attendance->time_out
-)->format('h:i A')
-
-}} @else - @endif </td>
-                      <td> @if($attendance->time_out) <span class="status-out"> TIME OUT </span> @elseif($attendance->time_in) <span class="status-in"> TIME IN </span> @endif </td>
+                      <td> @if ($attendance->time_in) 
+                                {{ \Carbon\Carbon::parse($attendance->time_in)->format('h:i A') }} 
+                           @else - 
+                        @endif 
+                    </td>
+                    <td> @if($attendance->time_out) {{ \Carbon\Carbon::parse($attendance->time_out)->format('h:i A') }} 
+                        @else - 
+                      @endif 
+                    </td>
+                    <td> @if($attendance->time_out) 
+                      <span class="status-out"> TIME OUT </span> 
+                      @elseif($attendance->time_in) <span class="status-in"> TIME IN </span> 
+                      @endif 
+                    </td>
                     </tr> @empty <tr>
-                      <td colspan="5" class="
-text-center
-py-5
-text-secondary">
-                        <i class="
-bi
-bi-calendar-x
-fs-1"></i>
+                      <td colspan="5" class="text-center py-5 text-secondary">
+                        <i class="bi bi-calendar-x fs-1"></i>
                         <div class="mt-2"> No attendance records found. </div>
                       </td>
-                    </tr> @endforelse </tbody>
+                    </tr> @endforelse 
+                  </tbody>
                 </table>
               </div>
             </div>

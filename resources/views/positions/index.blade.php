@@ -272,7 +272,7 @@
           <div class="page-title"> Positions </div>
           <div class="page-subtitle"> Manage employee positions </div>
         </div>
-        <div class="fw-bold"> Administrator </div>
+      @include ('layouts.logout')
       </header>
       <div class="content"> @if(session('success')) <div class="alert alert-success">
           <i class="bi bi-check-circle-fill"></i>
@@ -370,5 +370,6 @@ text-secondary"> No positions found. </td>
         </div>
       </div>
     </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

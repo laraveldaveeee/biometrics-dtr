@@ -19,15 +19,7 @@
           <div class="page-title"> Edit Employee </div>
           <div class="page-subtitle"> Update employee information and profile </div>
         </div>
-        <div class="d-flex align-items-center gap-3">
-          <div class="text-end">
-            <div class="fw-bold"> Administrator </div>
-            <div class="small text-secondary"> System Admin </div>
-          </div>
-          <div class="admin-avatar">
-            <i class="bi bi-person-fill"></i>
-          </div>
-        </div>
+          @include ('layouts.logout')
       </header>
       <div class="content">
         <div class="form-card">
@@ -200,5 +192,6 @@ mt-5">
         }
       });
     </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

@@ -9,7 +9,7 @@
           <div class="page-title"> <i class="bi bi-gear-fill text-primary"></i> System Settings </div>
           <div class="page-subtitle">Configure Office Information and Report Signatories</div>
         </div>
-        <div class="fw-bold"> Administrator </div>
+           @include ('layouts.logout')
       </header>
       <div class="container-fluid">
 

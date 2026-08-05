@@ -13,15 +13,7 @@
         </div>
           <div class="page-subtitle">View and Generate Daily Attendance Reports </div>
         </div>
-        <div class="d-flex align-items-center gap-3">
-          <div class="text-end">
-            <div class="fw-bold"> Administrator </div>
-            <div class="small text-secondary"> System Admin </div>
-          </div>
-          <div class="admin-avatar">
-            <i class="bi bi-person-fill"></i>
-          </div>
-        </div>
+          @include ('layouts.logout')
       </header>
 
 <div class="container-fluid">

@@ -8,13 +8,14 @@
     <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('css/employee.css') }}" rel="stylesheet">
   </head>
-  <body> @include ('layouts.sidebar') <div class="main">
+  <body> 
+    @include ('layouts.sidebar') <div class="main">
       <header class="topbar">
         <div>
           <div class="page-title"> Employees </div>
           <div class="page-subtitle"> Manage employee information and biometric accounts </div>
         </div>
-        <div class="fw-bold"> Administrator </div>
+            @include ('layouts.logout')
       </header>
       <div class="content">
         <div class="employee-card">
@@ -113,6 +114,7 @@ search-input" placeholder="Search employee...">
       </div>
     </div>
     <script>
+
       document.getElementById('employeeSearch').addEventListener('keyup', function() {
         let keyword = this.value.toLowerCase();
         let rows = document.querySelectorAll('#employeeTable tbody tr');
@@ -121,5 +123,6 @@ search-input" placeholder="Search employee...">
         });
       });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

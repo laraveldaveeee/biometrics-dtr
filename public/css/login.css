@@ -1,0 +1,408 @@
+/* ======================================================
+   NTC DTR LOGIN UI
+====================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Segoe UI',sans-serif;
+
+    background:#eef4fb;
+
+    overflow:hidden;
+
+}
+
+.login-wrapper{
+
+    display:flex;
+
+    width:100%;
+
+    height:100vh;
+
+}
+
+/* LEFT PANEL */
+
+.left-panel{
+
+    width:55%;
+
+    position:relative;
+
+    color:white;
+
+    overflow:hidden;
+
+    background:linear-gradient(135deg,#071426,#1769E8);
+
+}
+
+.left-panel::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+
+    height:700px;
+
+    background:rgba(255,255,255,.06);
+
+    border-radius:50%;
+
+    top:-250px;
+
+    right:-180px;
+
+}
+
+.left-panel::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+
+    height:450px;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:50%;
+
+    bottom:-180px;
+
+    left:-120px;
+
+}
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at top,
+    rgba(255,255,255,.08),
+    transparent 55%);
+
+}
+
+.content{
+
+    position:relative;
+
+    z-index:2;
+
+    height:100%;
+
+    padding:60px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+.logo-box{
+
+    display:flex;
+
+    align-items:center;
+
+    margin-bottom:70px;
+
+}
+
+.logo-icon{
+
+    width:75px;
+
+    height:75px;
+
+    border-radius:22px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:38px;
+
+    margin-right:18px;
+
+    background:white;
+
+    color:#1769E8;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.18);
+
+}
+
+.logo-box h2{
+
+    font-size:36px;
+
+    font-weight:800;
+
+}
+
+.logo-box span{
+
+    opacity:.85;
+
+    letter-spacing:2px;
+
+    font-size:13px;
+
+}
+
+.welcome h1{
+
+    font-size:52px;
+
+    font-weight:800;
+
+    line-height:1.25;
+
+}
+
+.welcome p{
+
+    margin-top:20px;
+
+    font-size:19px;
+
+    opacity:.9;
+
+    line-height:1.8;
+
+}
+
+.features{
+
+    margin-top:55px;
+
+}
+
+.features div{
+
+    margin-bottom:18px;
+
+    font-size:18px;
+
+}
+
+.features i{
+
+    color:#7CFC90;
+
+    margin-right:12px;
+
+}
+
+/* RIGHT PANEL */
+
+.right-panel{
+
+    width:45%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#f6f9fd;
+
+}
+
+.login-card{
+
+    width:470px;
+
+    padding:55px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.96);
+
+    box-shadow:0 30px 60px rgba(15,44,84,.10);
+
+    animation:fadeIn .7s ease;
+
+}
+
+.login-card h2{
+
+    font-size:36px;
+
+    font-weight:800;
+
+    color:#071426;
+
+}
+
+.login-card p{
+
+    color:#6c7a89;
+
+    margin-bottom:35px;
+
+}
+
+.form-label{
+
+    font-weight:600;
+
+    color:#4d5d72;
+
+}
+
+.form-control{
+
+    height:55px;
+
+    border-radius:14px;
+
+    border:1px solid #d8e2ef;
+
+    box-shadow:none!important;
+
+}
+
+.form-control:focus{
+
+    border-color:#1769E8;
+
+}
+
+.input-group-text{
+
+    border-radius:14px 0 0 14px;
+
+    background:#eef4fb;
+
+    border:1px solid #d8e2ef;
+
+}
+
+.login-btn{
+
+    height:56px;
+
+    border-radius:15px;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    background:#1769E8;
+
+    border:none;
+
+    transition:.25s;
+
+}
+
+.login-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 15px 30px rgba(23,105,232,.30);
+
+}
+
+.copyright{
+
+    text-align:center;
+
+    margin-top:35px;
+
+    font-size:13px;
+
+    color:#95a2b5;
+
+}
+
+/* Animation */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+.left-panel{
+
+    display:none;
+
+}
+
+.right-panel{
+
+    width:100%;
+
+}
+
+.login-card{
+
+    width:90%;
+
+    padding:35px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.login-card{
+
+    padding:28px;
+
+}
+
+.login-card h2{
+
+    font-size:28px;
+
+}
+
+.form-control{
+
+    height:50px;
+
+}
+
+}
