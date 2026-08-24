@@ -12,7 +12,7 @@
     @include ('layouts.sidebar') <div class="main">
       <header class="topbar">
         <div>
-          <div class="page-title"> Employees </div>
+          <div class="page-title"><i class="bi bi-people-fill text-primary"></i> Employees </div>
           <div class="page-subtitle"> Manage employee information and biometric accounts </div>
         </div>
             @include ('layouts.logout')

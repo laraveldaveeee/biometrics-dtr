@@ -3,13 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <title>Positions | NTC DTR</title>
      <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
-=======
     <title>Work Schedule | NTC DTR</title>
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
->>>>>>> ccad6fc (fix)
     <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
     <style>
       :root {

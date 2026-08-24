@@ -269,7 +269,7 @@
     <div class="main">
       <header class="topbar">
         <div>
-          <div class="page-title"> Positions </div>
+          <div class="page-title"><i class="bi bi-briefcase-fill text-primary"></i> Positions </div>
           <div class="page-subtitle"> Manage employee positions </div>
         </div>
       @include ('layouts.logout')

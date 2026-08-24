@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Position | NTC DTR</title>
-<<<<<<< HEAD
      <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
-=======
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
->>>>>>> ccad6fc (fix)
     <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
     <style>
       body {
