@@ -145,40 +145,216 @@ class MonthlyDTRController extends Controller
         );
     }
 
-   public function pdf(Request $request)
+   // public function pdf(Request $request)
+   //  {
+   //      $query = DailyAttendance::with([
+   //          'employee.department',
+   //          'employee.position'
+   //      ]);
+
+   //      if ($request->filled('employee_id')) {
+   //          $query->where('employee_id', $request->employee_id);
+   //      }
+
+   //      if ($request->filled('department_id')) {
+   //          $query->whereHas('employee.department', function ($q) use ($request) {
+   //              $q->where('id', $request->department_id);
+   //          });
+   //      }
+
+   //      if ($request->filled('month')) {
+   //          $month = \Carbon\Carbon::parse($request->month)
+   //          $query->whereYear('attendance_date', $month->year)
+   //                ->whereMonth('attendance_date', $month->month);
+   //      }
+
+   //      $records = $query
+   //          ->orderBy('attendance_date')
+   //          ->get();
+
+   //      $employee = null;
+
+   //      if ($request->filled('employee_id')) {
+
+   //          $employee = Employee::with([
+   //              'department',
+   //              'position'
+   //          ])->find($request->employee_id);
+
+   //      } elseif ($records->count()) {
+
+   //          $employee = $records->first()->employee;
+
+   //      }
+
+   //      $pdf = \PDF::loadView(
+   //          'reports.monthly.print',
+   //          compact(
+   //              'records',
+   //              'employee'
+   //          )
+   //      );
+
+   //      $pdf->setPaper('legal','portrait');
+
+   //     return $pdf->stream();
+   //  }
+
+    // public function pdf(Request $request)
+    // {
+    //     $query = DailyAttendance::with([
+    //         'employee.department',
+    //         'employee.position'
+    //     ]);
+
+    //     // Employee
+    //     if ($request->filled('employee_id')) {
+    //         $query->where('employee_id', $request->employee_id);
+    //     }
+
+    //     // Department
+    //     if ($request->filled('department_id')) {
+    //         $query->whereHas('employee', function ($q) use ($request) {
+    //             $q->where('department_id', $request->department_id);
+    //         });
+    //     }
+
+    //     // Month
+    //     if ($request->filled('month')) {
+
+    //         $month = \Carbon\Carbon::createFromFormat(
+    //             'Y-m',
+    //             $request->month
+    //         );
+
+    //         $query->whereYear(
+    //             'attendance_date',
+    //             $month->year
+    //         )->whereMonth(
+    //             'attendance_date',
+    //             $month->month
+    //         );
+    //     }
+
+    //     // Search Employee
+    //     if ($request->filled('search')) {
+
+    //         $search = $request->search;
+
+    //         $query->whereHas('employee', function ($q) use ($search) {
+
+    //             $q->where('name', 'like', '%' . $search . '%')
+    //               ->orWhere(
+    //                   'employee_no',
+    //                   'like',
+    //                   '%' . $search . '%'
+    //               );
+
+    //         });
+    //     }
+
+    //     // Get records
+    //     $records = $query
+    //         ->orderBy('attendance_date', 'asc')
+    //         ->get();
+
+    //     // Employee information
+    //     $employee = null;
+
+    //     if ($request->filled('employee_id')) {
+
+    //         $employee = Employee::with([
+    //             'department',
+    //             'position'
+    //         ])->find($request->employee_id);
+
+    //     } elseif ($records->count()) {
+
+    //         $employee = $records->first()->employee;
+    //     }
+
+    //     // Month name for PDF
+    //     $monthName = null;
+
+    //     if ($request->filled('month')) {
+
+    //         $monthName = \Carbon\Carbon::createFromFormat(
+    //             'Y-m',
+    //             $request->month
+    //         )->format('F Y');
+    //     }
+
+    //     // Generate PDF
+    //     $pdf = \PDF::loadView(
+    //         'reports.monthly.print',
+    //         compact(
+    //             'records',
+    //             'employee',
+    //             'monthName'
+    //         )
+    //     );
+
+    //     $pdf->setPaper('legal', 'portrait');
+
+    //     return $pdf->stream('monthly-dtr-report.pdf');
+    // }
+
+
+    public function pdf(Request $request)
     {
         $query = DailyAttendance::with([
             'employee.department',
             'employee.position'
         ]);
 
+        // Employee filter
         if ($request->filled('employee_id')) {
             $query->where('employee_id', $request->employee_id);
         }
 
+        // Department filter
         if ($request->filled('department_id')) {
-
-            $query->whereHas('employee.department', function ($q) use ($request) {
-
-                $q->where('id', $request->department_id);
-
+            $query->whereHas('employee', function ($q) use ($request) {
+                $q->where('department_id', $request->department_id);
             });
-
         }
 
+        // Month filter
         if ($request->filled('month')) {
 
-            $month = \Carbon\Carbon::parse($request->month);
+            $month = \Carbon\Carbon::createFromFormat(,,
+                'Y-m',
+                $request->month
+            );
 
-            $query->whereYear('attendance_date', $month->year)
-                  ->whereMonth('attendance_date', $month->month);
-
+            $query->whereYear(
+                'attendance_date',
+                $month->year
+            )->whereMonth(
+                'attendance_date',
+                $month->month
+            );
         }
 
+        // Search employee
+        if ($request->filled('search')) {
+
+            $search = $request->search;
+
+            $query->whereHas('employee', function ($q) use ($search) {
+
+                $q->where('name', 'like', '%' . $search . '%')
+                  ->orWhere('employee_no', 'like', '%' . $search . '%');
+
+            });
+        }
+
+        // Get records
         $records = $query
-            ->orderBy('attendance_date')
+            ->orderBy('attendance_date', 'asc')
             ->get();
 
+        // Employee information
         $employee = null;
 
         if ($request->filled('employee_id')) {
@@ -191,9 +367,9 @@ class MonthlyDTRController extends Controller
         } elseif ($records->count()) {
 
             $employee = $records->first()->employee;
-
         }
 
+        // Generate PDF
         $pdf = \PDF::loadView(
             'reports.monthly.print',
             compact(
@@ -202,9 +378,9 @@ class MonthlyDTRController extends Controller
             )
         );
 
-        $pdf->setPaper('legal','portrait');
+        $pdf->setPaper('legal', 'portrait');
 
-       return $pdf->stream();
+        return $pdf->stream('monthly-dtr.pdf');
     }
 
 }
